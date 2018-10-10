@@ -5,7 +5,7 @@ const _nullUser = Object.freeze({
   id: null
 });
 
-const sessionReducer = (state = _nullUser, action) => {
+const sessionsReducer = (state = _nullUser, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_USER:
@@ -17,4 +17,4 @@ const sessionReducer = (state = _nullUser, action) => {
   }
 };
 
-export default sessionReducer;
+export default sessionsReducer;
