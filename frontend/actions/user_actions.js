@@ -22,6 +22,6 @@ export const register = user => dispatch => (
   APIUtil.register(user)
   .then(
     user => (dispatch(receiveCurrentUser(user))),
-    err => (dispatch(receiveUserErrors(err.responseJSON)))
+    // err => (dispatch(receiveUserErrors(err.responseJSON)))
   )
 );

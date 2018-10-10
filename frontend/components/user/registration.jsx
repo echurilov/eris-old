@@ -8,10 +8,11 @@ class Registration extends React.Component {
       password: '',
       email: '',
     }
+    this.handleSubmit = this.handleSubmit.bind(this);
   }
 
   componentDidMount() {
-    this.props.removeUserErrors();
+    // this.props.removeUserErrors();
   }
 
   update(field) {
@@ -22,7 +23,8 @@ class Registration extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processFrom(this.state);
+    this.props.processFrom(this.state)
+    .then(this.props.history.push('/channels/@me'));
   }
 
   renderErrors() {
@@ -40,8 +42,7 @@ class Registration extends React.Component {
   render() {
     return(
       <div className="registration-form-container">
-        <form className="registration-form-box" onClick={this.handleSubmit}>
-          {this.renderErrors()}
+        <form className="registration-form-box">
           <br/>
           <section className="registration-form">
             <label>Email:
@@ -74,7 +75,7 @@ class Registration extends React.Component {
             <button
               type="submit"
               onClick={this.handleSubmit}>
-              Register
+              Sign Up
             </button>
           </section>
         </form>

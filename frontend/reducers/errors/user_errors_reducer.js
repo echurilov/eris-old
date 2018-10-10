@@ -1,12 +1,16 @@
 import {RECEIVE_USER_ERRORS, CLEAR_USER_ERRORS} from '../../actions/user_actions';
 
-const userErrorsReducer = (state = [], action) => {
+const _nullErrors = Object.freeze({
+  errors: []
+});
+
+const userErrorsReducer = (state = _nullErrors, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_USER_ERRORS:
       return action.errors;
     case CLEAR_USER_ERRORS:
-      return [];
+      return _nullErrors;
     default:
       return state;
   }

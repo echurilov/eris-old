@@ -4,7 +4,7 @@ class UserHome extends React.Component {
   render() {
     return(
       <div className="user-info">
-        {this.props.username}
+        <p>Logged in as {this.props.username}</p>
       </div>
     )
   }
