@@ -1,12 +1,12 @@
 import * as APIUtil from '../util/user_api_util';
 
-export const RECEIVE_CURRENT_USER = 'RECEIVE_CURRENT_USER';
+export const RECEIVE_USER = 'RECEIVE_USER';
 export const RECEIVE_USER_ERRORS = 'RECEIVE_USER_ERRORS';
 export const CLEAR_USER_ERRORS = 'CLEAR_USER_ERRORS';
 
-const receiveCurrentUser = currentUser => ({
-  type: RECEIVE_CURRENT_USER,
-  currentUser
+const receiveUser = user => ({
+  type: RECEIVE_USER,
+  user
 });
 
 export const receiveUserErrors = errors => ({
@@ -21,7 +21,7 @@ const removeUserErrors = () => ({
 export const register = user => dispatch => (
   APIUtil.register(user)
   .then(
-    user => (dispatch(receiveCurrentUser(user))),
+    user => (dispatch(receiveUser(user))),
     // err => (dispatch(receiveUserErrors(err.responseJSON)))
   )
 );
