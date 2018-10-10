@@ -8,6 +8,8 @@ const mapStateToProps = ({ errors }) => ({
   formType: 'register'
 });
 
+
+
 const mapDispatchToProps = dispatch => ({
   processFrom: (user) => dispatch(register(user)),
 });
