@@ -1,4 +1,4 @@
-import {RECEIVE_USER_ERRORS, CLEAR_USER_ERRORS} from '../../actions/user_aations';
+import {RECEIVE_USER_ERRORS, CLEAR_USER_ERRORS} from '../../actions/user_actions';
 
 const userErrorsReducer = (state = [], action) => {
   Object.freeze(state);

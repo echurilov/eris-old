@@ -1,12 +1,14 @@
 import React from 'react';
 import { Provider } from 'react-redux';
 import { Route, Redirect, Switch, Link, HashRouter } from 'react-router-dom';
-import RegistrationFormContainter from './registration_form/registration_form_container';
+import RegistrationContainer from './user/registration/registration_container';
+import UserHome from './user/home';
 
-cont App = () => (
+const App = () => (
   <div>
     <Switch>
-      <Route path="/register" component={RegistrationFormContainter} />
+      <Route path="/register" component={RegistrationContainer} />
+      <Route path="/channels/@me" component={UserHome} />
     </Switch>
   </div>
 );
