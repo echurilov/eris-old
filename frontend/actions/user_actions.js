@@ -9,7 +9,7 @@ const receiveUser = user => ({
   user
 });
 
-export const receiveUserErrors = errors => ({
+const receiveUserErrors = errors => ({
   type: RECEIVE_USER_ERRORS,
   errors
 });
