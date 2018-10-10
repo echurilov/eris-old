@@ -1,5 +1,5 @@
 import * as SessionAPIUtil from '../util/session_api_util';
-import { RECEIVE_USER } from '../util/user_api_util';
+import { RECEIVE_USER } from '../actions/user_actions';
 
 export const LOGOUT_USER = 'LOGOUT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
