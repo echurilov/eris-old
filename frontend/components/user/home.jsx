@@ -3,16 +3,7 @@ import React from 'react';
 class UserHome extends React.Component {
   constructor(props) {
     super(props);
-    this.state = {
-      username: '',
-      password: '',
-      email: '',
-    }
     this.handleSubmit = this.handleSubmit.bind(this);
-  }
-
-  componentDidMount() {
-    // console.log(this.props);
   }
 
   handleSubmit(e) {
@@ -22,9 +13,10 @@ class UserHome extends React.Component {
   }
 
   render() {
+    if (this.props.user === undefined) {return null};
     return(
       <div className="user-info">
-        <p>Logged in as {this.props.username}</p>
+        <p>Logged in as {this.props.user.username}</p>
           <form className="logout-form-box">
             <br/>
             <section className="logout-form">

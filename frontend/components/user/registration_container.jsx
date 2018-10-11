@@ -4,8 +4,8 @@ import { register } from '../../actions/user_actions';
 import { login } from '../../actions/session_actions';
 import Registration from './registration';
 
-const mapStateToProps = ({ errors }) => ({
-  errors: errors.userErrors,
+const mapStateToProps = state => ({
+  errors: state.errors.userErrors,
 });
 
 const mapDispatchToProps = dispatch => ({
