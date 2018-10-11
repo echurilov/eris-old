@@ -66,7 +66,7 @@ class Login extends React.Component {
             <button
               type="submit"
               onClick={this.handleSubmit}>
-              Sign Up
+              Login
             </button>
           </section>
         </form>
