@@ -14,7 +14,7 @@ const receiveUserErrors = errors => ({
   errors
 });
 
-const removeUserErrors = () => ({
+export const clearUserErrors = () => ({
   type: CLEAR_USER_ERRORS
 });
 
@@ -22,6 +22,6 @@ export const register = user => dispatch => (
   APIUtil.register(user)
   .then(
     user => (dispatch(receiveUser(user))),
-    // err => (dispatch(receiveUserErrors(err.responseJSON)))
+    err => (dispatch(receiveUserErrors(err.responseJSON)))
   )
 );

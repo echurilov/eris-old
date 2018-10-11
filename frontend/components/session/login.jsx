@@ -13,7 +13,7 @@ class Login extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.removeUserErrors();
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -46,8 +46,10 @@ class Login extends React.Component {
   }
 
   render() {
+  console.log(this.props.errors);
     return(
       <div className="login-form-container">
+        {this.renderErrors()}
         <form className="login-form-box">
           <br/>
           <section className="login-form">

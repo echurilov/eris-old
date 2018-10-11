@@ -6,13 +6,18 @@ class UserHome extends React.Component {
     this.handleSubmit = this.handleSubmit.bind(this);
   }
 
+  componentDidMount() {
+    this.props.clearErrors();
+  }
+
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
   }
 
   render() {
-    if (this.props.user === undefined) {return null};
+    console.log(this.props);
+    // if (this.props.user === undefined) {return null};
     return(
       <div className="user-info">
         <p>Logged in as {this.props.user.username}</p>

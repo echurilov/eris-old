@@ -1,8 +1,6 @@
 import {RECEIVE_SESSION_ERRORS, CLEAR_SESSION_ERRORS} from '../../actions/session_actions';
 
-const _nullErrors = Object.freeze({
-  errors: []
-});
+const _nullErrors = [];
 
 const sessionErrorsReducer = (state = _nullErrors, action) => {
   Object.freeze(state);

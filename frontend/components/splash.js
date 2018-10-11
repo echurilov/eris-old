@@ -3,7 +3,13 @@ import { Link } from 'react-router-dom';
 
 class Splash extends React.Component {
   render() {
-    return(<Link to={'/login'}>Login</Link>)
+    return(
+      <div>
+      <Link className="logo" to={'/'}>Eris</Link>
+      <br/>
+      <Link className="login-button" to={'/login'}>Login</Link>
+      </div>
+    )
   }
 }
 

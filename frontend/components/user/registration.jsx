@@ -14,7 +14,7 @@ class Registration extends React.Component {
   }
 
   componentDidMount() {
-    // this.props.removeUserErrors();
+    this.props.clearErrors();
   }
 
   update(field) {
@@ -47,8 +47,10 @@ class Registration extends React.Component {
   }
 
   render() {
+  console.log(this.props.errors);
     return(
       <div className="registration-form-container">
+        {this.renderErrors()}
         <form className="registration-form-box">
           <br/>
           <section className="registration-form">

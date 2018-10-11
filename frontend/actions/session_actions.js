@@ -19,7 +19,7 @@ const receiveSessionErrors = errors => ({
   errors
 });
 
-const removeSessionErrors = () => ({
+export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS
 });
 
@@ -27,7 +27,7 @@ export const login = user => dispatch => (
   SessionAPIUtil.login(user)
   .then(
     user => (dispatch(receiveUser(user))),
-    // err => (dispatch(receiveSessionErrors(err.responseJSON)))
+    err => (dispatch(receiveSessionErrors(err.responseJSON)))
   )
 );
 
@@ -35,6 +35,6 @@ export const logout = () => dispatch => (
   SessionAPIUtil.logout()
   .then(
     () => (dispatch(logoutUser())),
-    // err => (dispatch(receiveSessionErrors(err.responseJSON)))
+    err => (dispatch(receiveSessionErrors(err.responseJSON)))
   )
 );
