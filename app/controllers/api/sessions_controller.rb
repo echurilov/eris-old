@@ -5,12 +5,24 @@ class Api::SessionsController < ApplicationController
       params[:user][:password]
     )
 
+    errors = {}
+
+    if params[:user][:password] == ""
+      errors['password'] = ["This field is required"]
+    end
+
+    if params[:user][:email] == ""
+      errors['email'] = ["This field is required"]
+    end
+
     if @user
       login!(@user)
       render 'api/users/show'
     else
-      render json: {'password': ["Password does not match"]}, status: 401
+      errors['password'] += ["Password does not match"]
+      render json: errors, status: 422
     end
+
   end
 
   def destroy
