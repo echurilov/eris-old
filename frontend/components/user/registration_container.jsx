@@ -8,7 +8,7 @@ const mapStateToProps = ({ errors }) => ({
 });
 
 const mapDispatchToProps = dispatch => ({
-  processFrom: (user) => dispatch(register(user)),
+  processForm: (user) => dispatch(register(user)),
 });
 
 export default connect(mapStateToProps, mapDispatchToProps)(Registration);

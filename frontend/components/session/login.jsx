@@ -23,7 +23,7 @@ class Login extends React.Component {
 
   handleSubmit(e) {
     e.preventDefault();
-    this.props.processFrom(this.state)
+    this.props.processForm(this.state)
     .then(this.props.history.push('/channels/@me'));
   }
 
