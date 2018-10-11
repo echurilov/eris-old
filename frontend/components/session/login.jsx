@@ -33,26 +33,29 @@ class Login extends React.Component {
     this.props.processForm(demoUser)
   }
 
-  renderErrors() {
+  renderErrors(type) {
     let errorList = [];
-    Object.entries(this.props.errors).map((type) => {
-      errorList = errorList.concat(Object.entries(type[1]))
+    Object.entries(this.props.errors).map((entry) => {
+      errorList = errorList.concat(Object.entries(entry[1]))
     })
     return(
       <ul>
-        {errorList.map((error) => (
-          error[1]&&error[1].map((err,index) => {
-            if (err.charAt(0) === err.charAt(0).toUpperCase()){
-              return(<li key={error[0] + index + Date.now()}>
-                {err}
-              </li>)
-            } else {
-              return(<li key={error[0] + index + Date.now()}>
-                {error[0]} {err}
-              </li>)
-            }
-          })
-        ))}
+        {errorList.map((error) => {
+          if (type === error[0]) {return(
+            error[1]&&error[1].map((err,index) => {
+              if (err.charAt(0) === err.charAt(0).toUpperCase()){
+                return(<li key={error[0] + index + Date.now()}>
+                  {err}
+                </li>)
+              } else {
+                return(<li key={error[0] + index + Date.now()}>
+                  {error[0]} {err}
+                </li>)
+              }
+            })
+          )}
+        }
+      )}
       </ul>
     )
   }
@@ -65,7 +68,7 @@ class Login extends React.Component {
         <form className="login-form-box">
           <br/>
           <section className="login-form">
-            <label>Email:
+            <label>Email: {this.renderErrors('email')}
               <input
                 className="login-input"
                 type="email"
@@ -74,7 +77,7 @@ class Login extends React.Component {
               />
             </label>
             <br/>
-            <label>Password:
+            <label>Password: {this.renderErrors('password')}
               <input
                 className="login-input"
                 type="password"

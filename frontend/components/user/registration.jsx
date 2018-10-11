@@ -35,26 +35,29 @@ class Registration extends React.Component {
     this.props.demoLogin(demoUser)
   }
 
-  renderErrors() {
+  renderErrors(type) {
     let errorList = [];
-    Object.entries(this.props.errors).map((type) => {
-      errorList = errorList.concat(Object.entries(type[1]))
+    Object.entries(this.props.errors).map((entry) => {
+      errorList = errorList.concat(Object.entries(entry[1]))
     })
     return(
       <ul>
-        {errorList.map((error) => (
-          error[1]&&error[1].map((err,index) => {
-            if (err.charAt(0) === err.charAt(0).toUpperCase()){
-              return(<li key={error[0] + index + Date.now()}>
-                {err}
-              </li>)
-            } else {
-              return(<li key={error[0] + index + Date.now()}>
-                {error[0]} {err}
-              </li>)
-            }
-          })
-        ))}
+        {errorList.map((error) => {
+          if (type === error[0]) {return(
+            error[1]&&error[1].map((err,index) => {
+              if (err.charAt(0) === err.charAt(0).toUpperCase()){
+                return(<li key={error[0] + index + Date.now()}>
+                  {err}
+                </li>)
+              } else {
+                return(<li key={error[0] + index + Date.now()}>
+                  {error[0]} {err}
+                </li>)
+              }
+            })
+          )}
+        }
+      )}
       </ul>
     )
   }
@@ -63,11 +66,10 @@ class Registration extends React.Component {
   // console.log('r: ', this.props.errors);
     return(
       <div className="registration-form-container">
-        {this.renderErrors()}
         <form className="registration-form-box">
           <br/>
           <section className="registration-form">
-            <label>Email:
+            <label>Email: {this.renderErrors('email')}
               <input
                 className="registration-input"
                 type="email"
@@ -76,7 +78,7 @@ class Registration extends React.Component {
               />
             </label>
             <br/>
-            <label>Username:
+            <label>Username: {this.renderErrors('username')}
               <input
                 className="registration-input"
                 type="text"
@@ -85,7 +87,7 @@ class Registration extends React.Component {
               />
             </label>
             <br/>
-            <label>Password:
+            <label>Password: {this.renderErrors('password')}
               <input
                 className="registration-input"
                 type="password"
