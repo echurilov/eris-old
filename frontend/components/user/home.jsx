@@ -16,8 +16,7 @@ class UserHome extends React.Component {
   }
 
   render() {
-    console.log(this.props);
-    // if (this.props.user === undefined) {return null};
+    // console.log(this.props);
     return(
       <div className="user-info">
         <p>Logged in as {this.props.user.username}</p>

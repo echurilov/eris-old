@@ -1,6 +1,6 @@
 import {RECEIVE_USER_ERRORS, CLEAR_USER_ERRORS} from '../../actions/user_actions';
 
-const _nullErrors = [];
+const _nullErrors = {'email':null,'username':null,'password':null};
 
 const userErrorsReducer = (state = _nullErrors, action) => {
   Object.freeze(state);

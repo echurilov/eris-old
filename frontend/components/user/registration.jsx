@@ -14,6 +14,7 @@ class Registration extends React.Component {
   }
 
   componentDidMount() {
+    // console.log('cDM: ', this.props.errors);
     this.props.clearErrors();
   }
 
@@ -35,19 +36,29 @@ class Registration extends React.Component {
   }
 
   renderErrors() {
+    // console.log('rE: ', this.props.errors);
+    if (Object.entries(this.props.errors) === undefined) {return null};
     return(
       <ul>
-        {this.props.errors.map((error) => (
-          <li key={error + Date.now()}>
-            {error}
-          </li>
+        {Object.entries(this.props.errors).map((error) => (
+          error[1]&&error[1].map((err,index) => {
+            if (err.charAt(0) === err.charAt(0).toUpperCase()){
+              return(<li key={error[0] + index + Date.now()}>
+                {err}
+              </li>)
+            } else {
+              return(<li key={error[0] + index + Date.now()}>
+                {error[0]} {err}
+              </li>)
+            }
+          })
         ))}
       </ul>
     )
   }
 
   render() {
-  console.log(this.props.errors);
+  // console.log('r: ', this.props.errors);
     return(
       <div className="registration-form-container">
         {this.renderErrors()}
@@ -57,7 +68,7 @@ class Registration extends React.Component {
             <label>Email:
               <input
                 className="registration-input"
-                type="text"
+                type="email"
                 value={this.state.email}
                 onChange={this.update('email')}
               />

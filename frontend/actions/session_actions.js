@@ -27,7 +27,7 @@ export const login = user => dispatch => (
   SessionAPIUtil.login(user)
   .then(
     user => (dispatch(receiveUser(user))),
-    err => (dispatch(receiveSessionErrors(err.responseJSON)))
+    error => (dispatch(receiveSessionErrors(error.responseJSON)))
   )
 );
 
@@ -35,6 +35,6 @@ export const logout = () => dispatch => (
   SessionAPIUtil.logout()
   .then(
     () => (dispatch(logoutUser())),
-    err => (dispatch(receiveSessionErrors(err.responseJSON)))
+    error => (dispatch(receiveSessionErrors(error.responseJSON)))
   )
 );
