@@ -1,1 +1,8 @@
+<% if logged_in? %>
+  <script id="bootstrap-current-user" type="text/javascript">
+  	window.user = <%= render("/api/users/user.json.jbuilder",
+  		user: current_user).html_safe %>
+  </script>
+<% end %>
+
 <main id="root">If you can see this, React's not working</main>
