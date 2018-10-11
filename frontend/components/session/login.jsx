@@ -34,11 +34,13 @@ class Login extends React.Component {
   }
 
   renderErrors() {
-    // console.log('rE: ', this.props.errors);
-    if (Object.entries(this.props.errors) === undefined) {return null};
+    let errorList = [];
+    Object.entries(this.props.errors).map((type) => {
+      errorList = errorList.concat(Object.entries(type[1]))
+    })
     return(
       <ul>
-        {Object.entries(this.props.errors).map((error) => (
+        {errorList.map((error) => (
           error[1]&&error[1].map((err,index) => {
             if (err.charAt(0) === err.charAt(0).toUpperCase()){
               return(<li key={error[0] + index + Date.now()}>
