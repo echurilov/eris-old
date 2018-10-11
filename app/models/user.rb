@@ -12,8 +12,8 @@
 #
 # Indexes
 #
+#  index_users_on_email          (email) UNIQUE
 #  index_users_on_session_token  (session_token) UNIQUE
-#  index_users_on_username       (username) UNIQUE
 #
 
 class User < ApplicationRecord
@@ -22,8 +22,9 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  validates_presence_of :username, :password_digest, :session_token
-  validates_uniqueness_of :username, :session_token
+  validates_presence_of :username, :email, :password_digest, :session_token, message: "This field is required"
+  validates_uniqueness_of :email, message: "is already registered"
+  validates_uniqueness_of :session_token
   validates_length_of :password, minimum: 6, allow_nil: true
 
   def self.find_by_credentials(email, password)
