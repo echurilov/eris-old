@@ -9,6 +9,7 @@ class Registration extends React.Component {
       email: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +25,13 @@ class Registration extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
+    .then(this.props.history.push('/channels/@me'));
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
+    this.props.demoLogin(demoUser)
     .then(this.props.history.push('/channels/@me'));
   }
 
@@ -76,6 +84,14 @@ class Registration extends React.Component {
               type="submit"
               onClick={this.handleSubmit}>
               Sign Up
+            </button>
+            <br/>
+            <p>Or log in as...</p>
+            <button
+              type="button"
+              type="password"
+              onClick={this.handleDemo}>
+              Demo User
             </button>
           </section>
         </form>

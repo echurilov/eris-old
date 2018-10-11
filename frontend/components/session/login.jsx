@@ -4,11 +4,11 @@ class Login extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      username: '',
       password: '',
       email: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentDidMount() {
@@ -24,6 +24,13 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
+    .then(this.props.history.push('/channels/@me'));
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
+    this.props.processForm(demoUser)
     .then(this.props.history.push('/channels/@me'));
   }
 
@@ -67,6 +74,14 @@ class Login extends React.Component {
               type="submit"
               onClick={this.handleSubmit}>
               Login
+            </button>
+            <br/>
+            <p>Or log in as...</p>
+            <button
+              type="button"
+              type="password"
+              onClick={this.handleDemo}>
+              Demo User
             </button>
           </section>
         </form>
