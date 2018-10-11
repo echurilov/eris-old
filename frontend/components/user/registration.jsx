@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class Registration extends React.Component {
   constructor(props) {
@@ -25,14 +26,12 @@ class Registration extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.processForm(this.state)
-    .then(this.props.history.push('/channels/@me'));
   }
 
   handleDemo(e) {
     e.preventDefault();
     const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
     this.props.demoLogin(demoUser)
-    .then(this.props.history.push('/channels/@me'));
   }
 
   renderErrors() {
@@ -93,6 +92,8 @@ class Registration extends React.Component {
               onClick={this.handleDemo}>
               Demo User
             </button>
+            <br/>
+            <Link to={'/login'}>Already have an account?</Link>
           </section>
         </form>
       </div>
