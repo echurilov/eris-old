@@ -9,7 +9,7 @@ import HomeContainer from './user/home_container';
 import Error404 from './error404';
 
 const App = () => (
-  <div>
+  <div className="app">
     <Switch>
       <AuthRoute exact path="/" component={Splash} />
       <AuthRoute path="/register" component={RegistrationContainer} />
