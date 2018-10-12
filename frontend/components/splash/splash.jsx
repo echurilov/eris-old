@@ -2,6 +2,21 @@ import React from 'react';
 import { Link } from 'react-router-dom';
 
 class Splash extends React.Component {
+  constructor(props) {
+    super(props);
+    this.state = {
+      password: '',
+      email: '',
+    }
+    this.handleDemo = this.handleDemo.bind(this);
+  }
+
+  handleDemo(e) {
+    e.preventDefault();
+    const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
+    this.props.processForm(demoUser)
+  }
+
   render() {
     return(
       <div>
@@ -76,7 +91,7 @@ class Splash extends React.Component {
             <p>A chat for deities that's free, secure, and works on both your desktop and phone. Stop paying for Harmonia servers and hassling with Nike. Simplify your life.</p>
             <div className="button-box">
               <button className="button-download">Download</button>
-              <button className="button-demo">Demo Login</button>
+              <button className="button-demo" onClick={this.handleDemo}>Demo Login</button>
             </div>
           </div>
         </main>

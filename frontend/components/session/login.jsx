@@ -95,10 +95,7 @@ class Login extends React.Component {
             </button>
             <br/>
             <p>Or log in as...</p>
-            <button
-              type="button"
-              type="password"
-              onClick={this.handleDemo}>
+            <button onClick={this.handleDemo}>
               Demo User
             </button>
             <br/>
