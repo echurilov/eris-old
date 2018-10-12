@@ -1,18 +1,20 @@
 class Api::SessionsController < ApplicationController
   def create
-    @user = User.find_by_credentials(
-      params[:user][:email],
-      params[:user][:password]
-    )
-
+    email = params[:user][:email]
+    password = params[:user][:password]
     errors = {}
+    @user = User.find_by_credentials(email, password)
 
-    if params[:user][:password] == ""
+    if password == ""
       errors['password'] = ["This field is required"]
     end
 
-    if params[:user][:email] == ""
+    if email == ""
       errors['email'] = ["This field is required"]
+    end
+
+    unless password.length >= 6 && password.length <= 128
+      errors['password'] = ["Must be between 6 and 128 in length"]
     end
 
     if @user
