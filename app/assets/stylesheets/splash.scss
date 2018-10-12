@@ -41,30 +41,32 @@
 .nav-item {
   display: inline-flex;
   position: relative;
-  margin-right: 8px;
-  padding: 15px 10px 15px 10px;
 }
 
 .nav-link {
+  padding: 15px 10px 15px 10px;
+  margin-right: 8px;
 }
 
 .dropbtn {
   display: block;
   position: relative;
   border: none;
-  background-color: #18191c;
+  background-color: #18191C;
   color: white;
 }
 
 .dropdown {
   position: relative;
   display: inline-block;
+  padding: 15px 10px 15px 10px;
+  margin-right: 8px;
 }
 
 .dropdown-content {
   display: block;
   position: absolute;
-  top: 30px;
+  top: 40px;
   min-width: 122px;
   overflow: hidden;
   background: #FFFFFF;
@@ -72,8 +74,14 @@
   border-radius: 4px;
   padding: 2px 0;
   font-size: 13px;
-  color: #9099a4;
+  color: #9099A4;
+  z-index: 1;
   visibility: hidden;
+}
+
+.dropdown:hover .dropdown-content {
+  visibility: visible;
+  transform: scale(1) translateY(0);
 }
 
 .dropdown-link {
@@ -84,18 +92,15 @@
 }
 
 .dropdown-text {
-  color: #9099a4;
+  color: #9099A4;
   padding: 5px 10px;
 }
 
 .dropdown-link:hover {
-  color: #18191c;
+  color: #18191C;
   background-color: #F2F2F2;
 }
 
-.dropdown:hover .dropdown-content {
-  visibility: visible;
-}
 
 .right-nav-list {
 }
@@ -103,7 +108,7 @@
 .button-login {
   display: inline-block;
   opacity: .8;
-  background-color: #18191c;
+  background-color: #18191C;
   border: 2px solid #FFFFFF;
   border-radius: 20px;
   padding: 5px 17px 7px;
@@ -112,4 +117,54 @@
 
 .button-login:hover{
   opacity: 1;
+}
+
+.greeting {
+  box-sizing: border-box;
+  max-width: 1200px;
+  padding: 72px 50px 0;
+  position: relative;
+}
+
+.greeting h1 {
+  font-size: 36px;
+  font-weight: 700;
+  line-height: 44px;
+  text-align: center;
+}
+
+.greeting p {
+  opacity: .6;
+  text-align: center;
+  font-size: 16px;
+  line-height: 24px;
+  margin-top: 12px;
+  margin-bottom: 30px;
+  max-width: 710px;
+}
+
+.button-box {
+  display: flex;
+  justify-content: center;
+}
+
+.button-download {
+  display: inline-block;
+  height: 45px;
+  width: 250px;
+  color: #18191C;
+  background-color: #FFFFFF;
+  border-radius: 3px;
+  border: none;
+  margin-right: 45px;
+}
+
+.button-demo {
+  display: inline-block;
+  height: 45px;
+  width: 250px;
+  color: #FFFFFF;
+  background-color: #7289dA;
+  border-radius: 3px;
+  border: none;
 }

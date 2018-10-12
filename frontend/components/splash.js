@@ -71,9 +71,13 @@ class Splash extends React.Component {
           </div>
         </header>
         <main>
-          <div className = "greeting">
+          <div className= "greeting">
             <h1>It's time to ditch Nike and Harmonia.</h1>
             <p>A chat for deities that's free, secure, and works on both your desktop and phone. Stop paying for Harmonia servers and hassling with Nike. Simplify your life.</p>
+            <div className="button-box">
+              <button className="button-download">Download</button>
+              <button className="button-demo">Demo Login</button>
+            </div>
           </div>
         </main>
         <footer>
