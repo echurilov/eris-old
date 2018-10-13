@@ -64,56 +64,61 @@ class Registration extends React.Component {
   }
 
   render() {
-  // console.log('r: ', this.props.errors);
+  // console.log(this.props.errors);
     return(
-      <div className="registration-form-container">
-        <form className="registration-form-box">
-          <br/>
-          <section className="registration-form">
-            <label>Email: {this.renderErrors('email')}
-              <input
-                className="registration-input"
-                type="email"
-                value={this.state.email}
-                onChange={this.update('email')}
-              />
-            </label>
-            <br/>
-            <label>Username: {this.renderErrors('username')}
-              <input
-                className="registration-input"
-                type="text"
-                value={this.state.username}
-                onChange={this.update('username')}
-              />
-            </label>
-            <br/>
-            <label>Password: {this.renderErrors('password')}
-              <input
-                className="registration-input"
-                type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-              />
-            </label>
-            <br/>
-            <button
-              type="submit"
-              onClick={this.handleSubmit}>
-              Sign Up
-            </button>
-            <br/>
-            <p>Or log in as...</p>
-            <button
-              type="button"
-              type="password"
-              onClick={this.handleDemo}>
-              Demo User
-            </button>
-            <br/>
-            <Link to={'/login'}>Already have an account?</Link>
-          </section>
-        </form>
+      <div className="login-page">
+        <div className="logo">
+          <div className="logo-img"></div>
+          <div className="logo-txt"></div>
+        </div>
+        <div className="login-form-container">
+          <form className="login-form-box">
+            <h1>Welcome back!</h1>
+            <h2>We're so excited to see you again!</h2>
+            <section className="login-form">
+              <section className="login-field">
+                <label className="form-label">Email {this.renderErrors('email')}
+                  <input
+                    className="login-input"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                  />
+                </label>
+              </section>
+              <section className="login-form">
+                <label className="form-label">Username {this.renderErrors('password')}
+                  <input
+                    className="login-input"
+                    type="username"
+                    value={this.state.username}
+                    onChange={this.update('username')}
+                  />
+                </label>
+              </section>
+              <section className="login-form">
+                <label className="form-label">Password {this.renderErrors('password')}
+                  <input
+                    className="login-input"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                  />
+                </label>
+              </section>
+              <span className="link"><button className="link-button" onClick={this.handleDemo}>Or log in as Demo User</button></span>
+              <br/>
+              <button
+                className="button-login"
+                type="submit"
+                onClick={this.handleSubmit}>
+                Register
+              </button>
+              <span class="login-text">Already have an account?</span> <span className="link">
+              <Link to={'/login'}>Login</Link></span>
+            </section>
+          </form>
+        </div>
       </div>
     )
   }
