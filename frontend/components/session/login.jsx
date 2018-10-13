@@ -9,7 +9,7 @@ class Login extends React.Component {
       email: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    this.handleDemo = this.handleDemo.bind(this);
+    // this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentDidMount() {
@@ -29,11 +29,11 @@ class Login extends React.Component {
     this.props.processForm(this.state);
   }
 
-  handleDemo(e) {
-    e.preventDefault();
-    const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
-    this.props.processForm(demoUser)
-  }
+  // handleDemo(e) {
+  //   e.preventDefault();
+  //   const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
+  //   this.props.processForm(demoUser)
+  // }
 
   renderErrors(type) {
     let errorList = [];
@@ -41,7 +41,7 @@ class Login extends React.Component {
       errorList = errorList.concat(Object.entries(entry[1]))
     })
     return(
-      <ul>
+      <ul className="error-list">
         {errorList.map((error) => {
           if (type === error[0]) {return(
             error[1]&&error[1].map((err,index) => {
@@ -65,43 +65,49 @@ class Login extends React.Component {
   render() {
   // console.log(this.props.errors);
     return(
-      <div className="login-form-container">
-        {this.renderErrors()}
-        <form className="login-form-box">
-          <br/>
-          <section className="login-form">
-            <label>Email: {this.renderErrors('email')}
-              <input
-                className="login-input"
-                type="email"
-                value={this.state.email}
-                onChange={this.update('email')}
-              />
-            </label>
-            <br/>
-            <label>Password: {this.renderErrors('password')}
-              <input
-                className="login-input"
-                type="password"
-                value={this.state.password}
-                onChange={this.update('password')}
-              />
-            </label>
-            <br/>
-            <button
-              type="submit"
-              onClick={this.handleSubmit}>
-              Login
-            </button>
-            <br/>
-            <p>Or log in as...</p>
-            <button onClick={this.handleDemo}>
-              Demo User
-            </button>
-            <br/>
-            Need an account? <Link to={'/register'}>Register</Link>
-          </section>
-        </form>
+      <div className="login-page">
+        <div className="logo">
+          <div className="logo-img"></div>
+          <div className="logo-txt"></div>
+        </div>
+        <div className="login-form-container">
+          <form className="login-form-box">
+            <h1>Welcome back!</h1>
+            <h2>We're so excited to see you again!</h2>
+            <section className="login-form">
+              <section className="login-field">
+                <label className="form-label">Email {this.renderErrors('email')}
+                  <input
+                    className="login-input"
+                    type="email"
+                    value={this.state.email}
+                    onChange={this.update('email')}
+                  />
+                </label>
+              </section>
+              <section className="login-form">
+                <label className="form-label">Password {this.renderErrors('password')}
+                  <input
+                    className="login-input"
+                    type="password"
+                    value={this.state.password}
+                    onChange={this.update('password')}
+                  />
+                </label>
+              </section>
+              <span className="link"><button className="link-button" onClick={this.handleDemo}>Or log in as Demo User</button></span>
+              <br/>
+              <button
+                className="button-login"
+                type="submit"
+                onClick={this.handleSubmit}>
+                Login
+              </button>
+              <span class="login-text">Need an account?</span> <span className="link">
+              <Link to={'/register'}>Register</Link></span>
+            </section>
+          </form>
+        </div>
       </div>
     )
   }

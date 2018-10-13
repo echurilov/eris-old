@@ -20,15 +20,15 @@
   margin-top: 4px;
 }
 
-.logo {
+.logo-img {
   background-image: asset-url("ErisDisc.png");
   display: inline-block;
-  background-size: 30px 30px;
+  background-size: 40px 40px;
   background-repeat: no-repeat;
   overflow: hidden;
   height: 0;
-  width: 30px;
-  padding-top: 30px;
+  width: 40px;
+  padding-top: 40px;
   margin: 3 3 3 3;
 }
 
@@ -46,6 +46,7 @@
 .nav-link {
   padding: 15px 10px 15px 10px;
   margin-right: 8px;
+  opacity: .8
 }
 
 .dropbtn {
@@ -54,6 +55,7 @@
   border: none;
   background-color: #18191C;
   color: white;
+  opacity: .8
 }
 
 .dropdown {
@@ -105,7 +107,7 @@
 .right-nav-list {
 }
 
-.button-login {
+.button-open {
   display: inline-block;
   opacity: .8;
   background-color: #18191C;

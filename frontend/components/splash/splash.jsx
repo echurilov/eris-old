@@ -24,7 +24,7 @@ class Splash extends React.Component {
           <div className="header-outer">
             <nav className="header-inner">
               <ul className="left-nav-list">
-                <li><div className="logo-box"><Link className="logo" to={'/'}>Eris</Link></div></li>
+                <li><div className="logo-box"><Link className="logo-img" to={'/'}>Eris</Link></div></li>
                 <li className="nav-item"><Link className="nav-link" to={'https://github.com/echurilov/eris'}>Download</Link></li>
                 <li className="nav-item"><Link className="nav-link" to={'https://github.com/echurilov/eris/wiki'}>Wiki</Link></li>
                 <li className="nav-item"><Link className="nav-link" to={'/'}>Jobs</Link></li>
@@ -80,7 +80,7 @@ class Splash extends React.Component {
                 </li>
               </ul>
               <ul className="right-nav-list">
-                <button className="button-login"><Link to={'/login'}>Login</Link></button>
+                <button className="button-open"><Link to={'/login'}>Login</Link></button>
               </ul>
             </nav>
           </div>
