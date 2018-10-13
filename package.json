@@ -13,12 +13,12 @@
     "react-router-dom": "^4.3.1",
     "redux": "^4.0.0",
     "redux-thunk": "^2.3.0",
-    "socket.io": "^2.1.1",
-    "webpack": "^4.20.2",
-    "webpack-cli": "^3.1.2"
+    "socket.io": "^2.1.1"
   },
   "devDependencies": {
-    "redux-logger": "^3.0.6"
+    "redux-logger": "^3.0.6",
+    "webpack": "^4.20.2",
+    "webpack-cli": "^3.1.2"
   },
   "description": "Eris is a clone of the chat app Discord.",
   "version": "1.0.0",
