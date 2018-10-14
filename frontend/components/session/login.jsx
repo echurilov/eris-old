@@ -62,8 +62,26 @@ class Login extends React.Component {
     )
   }
 
+  renderError(type) {
+    let errorList = [];
+    let errorItem = "";
+    Object.entries(this.props.errors).map((entry) => {
+      errorList = errorList.concat(Object.entries(entry[1]))
+    })
+    errorList.forEach((error) => {
+      if (type === error[0] && error[1] != null) {
+        errorItem = <span className="error-item"> - {error[1][0]}</span>
+      }
+    })
+    return(errorItem);
+  }
+
   render() {
-  // console.log(this.props.errors);
+  console.log(this.props.errors);
+  const emailError = this.props.errors.userErrors.email || this.props.errors.sessionErrors.email ? "error" : "";
+  const usernameError = this.props.errors.userErrors.username || this.props.errors.sessionErrors.username ? "error" : "";
+  const passwordError = this.props.errors.userErrors.password || this.props.errors.sessionErrors.password ? "error" : "";
+
     return(
       <div className="login-page">
         <div className="logo">
@@ -75,25 +93,27 @@ class Login extends React.Component {
             <h1>Welcome back!</h1>
             <h2>We're so excited to see you again!</h2>
             <section className="login-form">
-              <section className="login-field">
-                <label className="form-label">Email {this.renderErrors('email')}
-                  <input
-                    className="login-input"
-                    type="email"
-                    value={this.state.email}
-                    onChange={this.update('email')}
+              <section className={`login-field ${emailError}`}>
+                <label htmlFor="email" className="form-label">Email</label>
+                {this.renderError('email')}
+                <input
+                  id="email"
+                  className="login-input"
+                  type="email"
+                  value={this.state.email}
+                  onChange={this.update('email')}
                   />
-                </label>
               </section>
-              <section className="login-form">
-                <label className="form-label">Password {this.renderErrors('password')}
-                  <input
-                    className="login-input"
-                    type="password"
-                    value={this.state.password}
-                    onChange={this.update('password')}
+              <section className={`login-field ${passwordError}`}>
+                <label htmlFor="password" className="form-label">Password</label>
+                {this.renderError('password')}
+                <input
+                  id="password"
+                  className="login-input"
+                  type="password"
+                  value={this.state.password}
+                  onChange={this.update('password')}
                   />
-                </label>
               </section>
               <span className="link"><button className="link-button" onClick={this.handleDemo}>Or log in as Demo User</button></span>
               <br/>
@@ -103,7 +123,7 @@ class Login extends React.Component {
                 onClick={this.handleSubmit}>
                 Login
               </button>
-              <span class="login-text">Need an account?</span> <span className="link">
+              <span className="login-text">Need an account?</span> <span className="link">
               <Link to={'/register'}>Register</Link></span>
             </section>
           </form>

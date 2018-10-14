@@ -2,8 +2,12 @@ class Api::SessionsController < ApplicationController
   def create
     email = params[:user][:email]
     password = params[:user][:password]
-    errors = {}
+    errors = Hash.new([])
     @user = User.find_by_credentials(email, password)
+
+    unless password.length >= 6 && password.length <= 128
+      errors['password'] = ["Must be between 6 and 128 in length"]
+    end
 
     if password == ""
       errors['password'] = ["This field is required"]
@@ -11,10 +15,6 @@ class Api::SessionsController < ApplicationController
 
     if email == ""
       errors['email'] = ["This field is required"]
-    end
-
-    unless password.length >= 6 && password.length <= 128
-      errors['password'] = ["Must be between 6 and 128 in length"]
     end
 
     if @user

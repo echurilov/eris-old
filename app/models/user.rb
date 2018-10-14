@@ -22,7 +22,7 @@ class User < ApplicationRecord
 
   attr_reader :password
 
-  validates_presence_of :username, :email, :password_digest, :session_token, message: "This field is required"
+  validates_presence_of :username, :email, :password, :password_digest, :session_token, message: "This field is required"
   validates_uniqueness_of :email, message: "Email is already registered"
   validates_uniqueness_of :session_token
   validates_length_of :password, minimum: 6, maximum: 128, allow_nil: true, message: "Must be between 6 and 128 in length"

@@ -69,7 +69,7 @@ form h2 {
 }
 
 .login-field {
-  margin-bottom: 20px;
+  margin-bottom: 8px;
 }
 
 
@@ -100,6 +100,7 @@ form h2 {
 
 .login-text {
   font-size: 12px;
+  margin-top: 20px;
 }
 
 .error-list {
@@ -113,8 +114,24 @@ form h2 {
   font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
 }
 
-.error-list > li:before {
-  content: " - ";
+.error-item {
+  font-size: 12px;
+  font-style: italic;
+  // text-transform: none;
+  color: #F04747;
+  margin-bottom: 8px;
+  letter-spacing: .5px;
+  font-weight: 300;
+  font-family: Whitney,Helvetica Neue,Helvetica,Arial,sans-serif;
+}
+
+.error label {
+  color: #F04747;
+  font-style: none;
+}
+
+.error input {
+  border-color: #F04747;
 }
 
 input {
@@ -122,15 +139,12 @@ input {
   height: 18px;
   padding: 10px;
   width: 378px;
+  margin-top: 8px;
   margin-bottom: 8px;
   border: 1px solid;
   border-color: rgba(0,0,0,.3);
   border-radius: 3px;
   color: #f6f6f7;
-}
-
-.input-error{
-  border-color: #f04747;
 }
 
 input:focus {
