@@ -29,11 +29,11 @@ class Login extends React.Component {
     this.props.processForm(this.state);
   }
 
-  // handleDemo(e) {
-  //   e.preventDefault();
-  //   const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
-  //   this.props.processForm(demoUser)
-  // }
+  handleDemo(e) {
+    e.preventDefault();
+    const demoUser = { email: 'athena@pantheon.io', password: 'pallas'};
+    this.props.processForm(demoUser)
+  }
 
   renderErrors(type) {
     let errorList = [];
@@ -84,9 +84,11 @@ class Login extends React.Component {
 
     return(
       <div className="login-page">
-        <div className="logo">
-          <div className="logo-img"></div>
-          <div className="logo-txt"></div>
+        <div>
+          <Link className="logo" to={'/'}>
+            <div className="logo-img"></div>
+            <div className="logo-txt"></div>
+          </Link>
         </div>
         <div className="login-form-container">
           <form className="login-form-box">

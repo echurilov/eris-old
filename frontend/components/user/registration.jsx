@@ -85,9 +85,11 @@ class Registration extends React.Component {
 
     return(
       <div className="login-page">
-        <div className="logo">
-          <div className="logo-img"></div>
-          <div className="logo-txt"></div>
+        <div>
+          <Link className="logo" to={'/'}>
+            <div className="logo-img"></div>
+            <div className="logo-txt"></div>
+          </Link>
         </div>
         <div className="login-form-container">
           <form className="login-form-box">
