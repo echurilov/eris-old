@@ -4,7 +4,7 @@ import * as ServerAction from './server_actions';
 export const JOIN_SERVER = 'JOIN_SERVER';
 export const LEAVE_SERVER = 'LEAVE_SERVER';
 
-export const join = server => dispatch => (
+export const join = (server) => dispatch => (
   ServersAPIUtil.join(server.id)
   .then(
     server => (dispatch(ServerAction.receiveServer(server))),
@@ -12,7 +12,7 @@ export const join = server => dispatch => (
   )
 );
 
-export const leave = membership => dispatch => (
+export const leave = (membership) => dispatch => (
   ServersAPIUtil.leave(membership.id)
   .then(
     server => (dispatch(ServerAction.receiveServer(server))),

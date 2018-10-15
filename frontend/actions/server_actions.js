@@ -4,12 +4,13 @@ export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
 export const DELETE_SERVER = 'DELETE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
+export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
-const receiveServers = => ({
+const receiveServers = () => ({
   type: RECEIVE_SERVERS,
 });
 
-const receiveServer = server => ({
+const receiveServer = (server) => ({
   type: RECEIVE_SERVER,
   server
 });
@@ -19,9 +20,13 @@ const removeServer = (id) => ({
   id
 });
 
-const receiveServerErrors = server => ({
+const receiveServerErrors = (server) => ({
   type: RECEIVE_SERVER_ERRORS,
   server
+});
+
+export const clearServerErrors = () => ({
+  type: CLEAR_SERVER_ERRORS
 });
 
 export const index = () => dispatch => (
@@ -40,7 +45,7 @@ export const show = (server) => dispatch => (
   )
 );
 
-export const create = server => dispatch => (
+export const create = (server) => dispatch => (
   ServersAPIUtil.create(server)
   .then(
     server => (dispatch(receiveServer(server))),
@@ -48,10 +53,10 @@ export const create = server => dispatch => (
   )
 );
 
-export const delete = (server) => dispatch => (
-  ServersAPIUtil.delete(server.id)
+export const destroy = (server) => dispatch => (
+  ServersAPIUtil.destroy(server.id)
   .then(
-    server => (dispatch(receiveServer(server))),
+    server => (dispatch(removeServer(server))),
     error => (dispatch(receiveServerErrors(error.responseJSON)))
   )
 );

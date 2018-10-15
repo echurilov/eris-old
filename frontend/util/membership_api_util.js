@@ -1,4 +1,4 @@
-export const join = id => (
+export const join = (id) => (
   $.ajax({
     method: 'POST',
     url: '/api/memberships',
@@ -6,7 +6,7 @@ export const join = id => (
   })
 );
 
-export const leave = id => (
+export const leave = (id) => (
   $.ajax({
     method: 'POST',
     url: '/api/memberships',

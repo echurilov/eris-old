@@ -5,7 +5,7 @@ export const index = () => (
   })
 );
 
-export const create = server => (
+export const create = (server) => (
   $.ajax({
     method: 'POST',
     url: '/api/servers',
@@ -13,7 +13,7 @@ export const create = server => (
   })
 );
 
-export const show = id => (
+export const show = (id) => (
   $.ajax({
     method: 'GET',
     url: `/api/servers/${id}`,
@@ -21,7 +21,7 @@ export const show = id => (
   })
 );
 
-export const delete = server => (
+export const destroy = (id) => (
   $.ajax({
     method: 'DELETE',
     url: `/api/servers/${id}`,

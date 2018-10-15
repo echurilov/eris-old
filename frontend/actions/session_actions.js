@@ -5,7 +5,7 @@ export const LOGOUT_USER = 'LOGOUT_USER';
 export const RECEIVE_SESSION_ERRORS = 'RECEIVE_SESSION_ERRORS';
 export const CLEAR_SESSION_ERRORS = 'CLEAR_SESSION_ERRORS';
 
-const receiveUser = user => ({
+const receiveUser = (user) => ({
   type: RECEIVE_USER,
   user
 });
@@ -23,7 +23,7 @@ export const clearSessionErrors = () => ({
   type: CLEAR_SESSION_ERRORS
 });
 
-export const login = user => dispatch => (
+export const login = (user) => dispatch => (
   SessionAPIUtil.login(user)
   .then(
     user => (dispatch(receiveUser(user))),
