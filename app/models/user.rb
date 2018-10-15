@@ -27,6 +27,15 @@ class User < ApplicationRecord
   validates_uniqueness_of :session_token
   validates_length_of :password, minimum: 6, maximum: 128, allow_nil: true, message: "Must be between 6 and 128 in length"
 
+  has_many :owned_servers,
+  class_name: :Server,
+  inverse_of: :owner
+
+  has_many :memberships
+  has_many :servers,
+  through: :memberships,
+  inverse_of: :member
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     if user && user.is_password?(password)
