@@ -2,7 +2,7 @@ import * as ServersAPIUtil from '../util/servers_api_util';
 
 export const RECEIVE_SERVERS = 'RECEIVE_SERVERS';
 export const RECEIVE_SERVER = 'RECEIVE_SERVER';
-export const DELETE_SERVER = 'DELETE_SERVER';
+export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
 export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
@@ -16,7 +16,7 @@ const receiveServer = (server) => ({
 });
 
 const removeServer = (id) => ({
-  type: DELETE_SERVER,
+  type: REMOVE_SERVER,
   id
 });
 

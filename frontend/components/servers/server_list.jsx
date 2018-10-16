@@ -14,7 +14,7 @@ class ServerList extends React.Component {
     let serverList = [];
     if (this.props.servers) {
       this.props.servers.map((server) => (
-        <li><Link to="{`channels/${server.id}`"}>${server.name}</Link></li>
+        <li><Link to={`channels/${server.id}`}>`${server.name}`</Link></li>
       ))
 
     }

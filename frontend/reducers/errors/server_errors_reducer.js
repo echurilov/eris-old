@@ -1,4 +1,4 @@
-import { RECEIVE_USER_ERRORS, CLEAR_SERVER_ERRORS } from '../../actions/server_actions';
+import { RECEIVE_SERVER_ERRORS, CLEAR_SERVER_ERRORS } from '../../actions/server_actions';
 import { CLEAR_ERRORS } from '../../actions/error_actions';
 
 const _nullErrors = {'server': null};

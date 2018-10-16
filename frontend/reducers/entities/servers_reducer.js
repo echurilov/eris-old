@@ -1,4 +1,4 @@
-import { RECEIVE_SERVER, RECEIVE_SERVERS, DELETE_SERVER } from '../../actions/server_actions';
+import { RECEIVE_SERVER, RECEIVE_SERVERS, REMOVE_SERVER } from '../../actions/server_actions';
 
 let _nullServer = {id: null};
 
@@ -13,7 +13,7 @@ const serversReducer = (state = _nullServer, action) => {
         servers[server.id] = server;
       });
       return servers;
-    case DELETE_SERVER:
+    case REMOVE_SERVER:
       return _nullServer;
     default:
       return state;

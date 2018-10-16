@@ -8,4 +8,8 @@
 
 User.delete_all
 
-demoUser = User.create({"username"=>"Athena", "email"=>"athena@pantheon.io", "password"=>"pallas"})
+athena = User.create({"username"=>"Athena", "email"=>"athena@pantheon.io", "password"=>"pallas"})
+
+athens = Server.create("name" => "Athens", "owner_id" => athena.id)
+
+Membership.create("member_id" => athena.id, "server_id" => athens.id)

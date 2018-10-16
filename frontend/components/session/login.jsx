@@ -9,7 +9,7 @@ class Login extends React.Component {
       email: '',
     }
     this.handleSubmit = this.handleSubmit.bind(this);
-    // this.handleDemo = this.handleDemo.bind(this);
+    this.handleDemo = this.handleDemo.bind(this);
   }
 
   componentDidMount() {

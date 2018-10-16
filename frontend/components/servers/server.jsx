@@ -3,7 +3,7 @@ import ServerListContainer from './server_list_container';
 
 const Server = () => (
   <div className="show-server">
-    <ServerList />
+    <ServerListContainer />
     <div className="channels"></div>
     <div className="messages"></div>
   </div>
