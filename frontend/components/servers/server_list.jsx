@@ -17,7 +17,7 @@ class ServerList extends React.Component {
     let serverList = [];
     if (this.props.joined) {
       serverList = Object.values(this.props.joined).map((server) => (
-        <li><Link to={`/channels/${server.id}`}>{server.name}</Link></li>
+        <li key={server.id}><Link to={`/channels/${server.id}`}>{server.name}</Link></li>
       ))
     }
     return(

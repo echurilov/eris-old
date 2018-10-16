@@ -31,10 +31,12 @@ class User < ApplicationRecord
   class_name: :Server,
   inverse_of: :owner
 
-  has_many :memberships
+  has_many :memberships,
+  foreign_key: :member_id
+
   has_many :servers,
   through: :memberships,
-  inverse_of: :member
+  inverse_of: :members
 
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)

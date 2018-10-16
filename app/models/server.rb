@@ -24,7 +24,7 @@ class Server < ApplicationRecord
   has_many :memberships
   has_many :members,
   through: :memberships,
-  inverse_of: :server,
+  inverse_of: :servers,
   dependent: :destroy
-  
+
 end

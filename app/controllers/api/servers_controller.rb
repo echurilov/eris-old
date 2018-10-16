@@ -1,6 +1,8 @@
 class Api::ServersController < ApplicationController
   def index
-    @servers = Server.where(owner_id: current_user.id)
+    # owned = Server.where(owner_id: current_user.id)
+    # joined = current_user.servers
+    @servers = current_user.servers
     render 'api/servers/index'
   end
 
