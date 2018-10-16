@@ -1,5 +1,5 @@
 import React from 'react';
-import ServerListContainer from '../servers/server_list_container';
+import Server from '../servers/server';
 
 class UserHome extends React.Component {
   constructor(props) {
@@ -33,7 +33,7 @@ class UserHome extends React.Component {
           </section>
         </form>
         <div className="show-direct-messages">
-          <ServerListContainer />
+          <Server />
           <div className="direct-messages"></div>
           <div className="messages"></div>
         </div>

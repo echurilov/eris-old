@@ -1,4 +1,5 @@
 import React from 'react';
+import { Link } from 'react-router-dom';
 
 class ServerList extends React.Component {
   constructor(props) {
@@ -7,16 +8,17 @@ class ServerList extends React.Component {
 
   componentDidMount() {
     this.props.clearErrors();
+    this.props.listServers();
+    console.log(this.props)
   }
 
   render() {
     // console.log(this.props);
     let serverList = [];
-    if (this.props.servers) {
-      this.props.servers.map((server) => (
-        <li><Link to={`channels/${server.id}`}>`${server.name}`</Link></li>
+    if (this.props.joined) {
+      serverList = Object.values(this.props.joined).map((server) => (
+        <li><Link to={`/channels/${server.id}`}>{server.name}</Link></li>
       ))
-
     }
     return(
       <div className="server-list">

@@ -13,13 +13,15 @@ export const create = (server) => (
   })
 );
 
-export const show = (id) => (
+export const show = (id) => {
+  debugger;
+  return(
   $.ajax({
     method: 'GET',
     url: `/api/servers/${id}`,
     data: { server },
   })
-);
+)};
 
 export const destroy = (id) => (
   $.ajax({

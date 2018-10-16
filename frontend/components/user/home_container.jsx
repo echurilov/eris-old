@@ -4,10 +4,12 @@ import { logout } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/error_actions';
 import UserHome from './home';
 
-const mapStateToProps = state => ({
-  user: state.entities.user[state.entities.session.id],
-  errors: state.errors
-});
+const mapStateToProps = state => {
+  // console.log(state);
+  return({
+    user: state.entities.user[state.entities.session.id],
+    errors: state.errors
+})};
 
 const mapDispatchToProps = dispatch => ({
   processForm: (user) => dispatch(logout()),

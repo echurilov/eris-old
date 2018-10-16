@@ -6,8 +6,9 @@ export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
 export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
-const receiveServers = () => ({
+const receiveServers = (servers) => ({
   type: RECEIVE_SERVERS,
+  servers
 });
 
 const receiveServer = (server) => ({
@@ -29,21 +30,25 @@ export const clearServerErrors = () => ({
   type: CLEAR_SERVER_ERRORS
 });
 
-export const index = () => dispatch => (
+export const index = () => dispatch => {
+  // debugger;
+  return(
   ServersAPIUtil.index()
   .then(
-    server => (dispatch(receiveServers(servers))),
+    servers => (dispatch(receiveServers(servers))),
     error => (dispatch(receiveServerErrors(error.responseJSON)))
   )
-);
+)};
 
-export const show = (server) => dispatch => (
+export const show = (server) => dispatch => {
+  // debugger;
+  return(
   ServersAPIUtil.show(server.id)
   .then(
     server => (dispatch(receiveServer(server))),
     error => (dispatch(receiveServerErrors(error.responseJSON)))
   )
-);
+)};
 
 export const create = (server) => dispatch => (
   ServersAPIUtil.create(server)
