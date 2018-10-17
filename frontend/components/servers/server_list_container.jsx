@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { index, show } from '../../actions/server_actions';
 import { clearErrors } from '../../actions/error_actions';
 import ServerList from './server_list';

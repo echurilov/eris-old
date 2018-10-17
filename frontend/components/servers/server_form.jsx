@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 
 class ServerForm extends React.Component {
   constructor(props) {
@@ -25,13 +26,15 @@ class ServerForm extends React.Component {
     e.preventDefault();
     // this.props.clearErrors();
       // console.log(this.state);
-    this.props.createServer(this.state);
+    this.props.createServer(this.state)
+    .then(data => this.props.history.push(`/channels/${data.server.id}`));
   }
 
   joinServer(e) {
     e.preventDefault();
     // this.props.clearErrors();
-    this.props.joinServer(this.state);
+    this.props.joinServer(this.state)
+    .then(data => this.props.history.push(`/channels/${data.server.id}`));
   }
 
   // renderError(type) {
@@ -83,4 +86,4 @@ class ServerForm extends React.Component {
   }
 }
 
-export default ServerForm;
+export default withRouter(ServerForm);
