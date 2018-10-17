@@ -52,8 +52,7 @@ class ServerForm extends React.Component {
   // }
 
   render() {
-    // console.log(this.props);
-    const serverError = this.props.errors ? "error" : "";
+    const serverError = this.props.errors.serverErrors.server ? "error" : "";
 
     return(
       <div className="show-server">
@@ -73,12 +72,6 @@ class ServerForm extends React.Component {
             type="createServer"
             onClick={this.createServer}>
             Create Server
-          </button>
-          <button
-            className="button-server"
-            type="joinServer"
-            onClick={this.joinServer}>
-            Join Server
           </button>
         </form>
       </div>
