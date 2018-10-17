@@ -19,6 +19,7 @@ class Api::ServersController < ApplicationController
     @server = Server.new(server_params)
     @server.owner_id = current_user.id
     if @server.save
+      current_user.servers << @server
       render 'api/servers/show'
     else
       render json: @server.errors.messages, status: 422

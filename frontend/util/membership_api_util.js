@@ -8,8 +8,7 @@ export const join = (id) => (
 
 export const leave = (id) => (
   $.ajax({
-    method: 'POST',
-    url: '/api/memberships',
-    data: id,
+    method: 'DELETE',
+    url: `/api/memberships/${id}`,
   })
 );
