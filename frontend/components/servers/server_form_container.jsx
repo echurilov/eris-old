@@ -1,8 +1,9 @@
 import React from 'react';
 import { connect } from 'react-redux';
-import { index, show } from '../../actions/server_actions';
+import { create } from '../../actions/server_actions';
+import { join } from '../../actions/membership_actions';
 import { clearErrors } from '../../actions/error_actions';
-import ServerList from './server_list';
+import ServerForm from './server_form';
 
 const mapStateToProps = state => {
   // console.log(state);
@@ -14,9 +15,9 @@ const mapStateToProps = state => {
 })};
 
 const mapDispatchToProps = dispatch => ({
-  listServers: () => dispatch(index()),
-  showServer: (server) => dispatch(show(server)),
+  createServer: (server) => dispatch(create(server)),
+  joinServer: (server) => dispatch(join(server)),
   clearErrors: () => dispatch(clearErrors())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerList);
+export default connect(mapStateToProps, mapDispatchToProps)(ServerForm);

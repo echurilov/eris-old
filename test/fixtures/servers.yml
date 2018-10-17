@@ -10,7 +10,7 @@
 #
 # Indexes
 #
-#  index_servers_on_owner_id  (owner_id) UNIQUE
+#  index_servers_on_owner_id  (owner_id)
 #
 
 # Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html

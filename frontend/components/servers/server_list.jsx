@@ -1,6 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
-import ServerForm from './server_form';
+import ServerFormContainer from './server_form_container';
 
 class ServerList extends React.Component {
   constructor(props) {
@@ -26,7 +26,7 @@ class ServerList extends React.Component {
         <ul>
           <Link to={'/channels/@me'}>Home</Link>
           {serverList}
-          <ServerForm />
+          <ServerFormContainer />
         </ul>
       </div>
     )

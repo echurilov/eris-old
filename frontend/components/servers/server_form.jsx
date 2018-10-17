@@ -23,13 +23,14 @@ class ServerForm extends React.Component {
 
   createServer(e) {
     e.preventDefault();
-    this.props.clearErrors();
+    // this.props.clearErrors();
+      // console.log(this.state);
     this.props.createServer(this.state);
   }
 
   joinServer(e) {
     e.preventDefault();
-    this.props.clearErrors();
+    // this.props.clearErrors();
     this.props.joinServer(this.state);
   }
 
