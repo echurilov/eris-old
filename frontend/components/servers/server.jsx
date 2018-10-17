@@ -7,7 +7,7 @@ class Server extends React.Component {
   }
 
   componentDidMount() {
-    console.log(this);
+    // console.log(this);
     // this.props.clearErrors();
   }
 

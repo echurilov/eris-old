@@ -25,7 +25,7 @@ class Login extends React.Component {
   handleSubmit(e) {
     e.preventDefault();
     this.props.clearErrors();
-    console.log(this.state);
+    // console.log(this.state);
     this.props.processForm(this.state);
   }
 

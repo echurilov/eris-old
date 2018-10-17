@@ -1,5 +1,6 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
+import ServerForm from './server_form';
 
 class ServerList extends React.Component {
   constructor(props) {
@@ -9,7 +10,7 @@ class ServerList extends React.Component {
   componentDidMount() {
     this.props.clearErrors();
     this.props.listServers();
-    console.log(this.props)
+    // console.log(this.props)
   }
 
   render() {
@@ -23,9 +24,10 @@ class ServerList extends React.Component {
     return(
       <div className="server-list">
         <ul>
+          <Link to={'/channels/@me'}>Home</Link>
           {serverList}
+          <ServerForm />
         </ul>
-        <form className="add-server"></form>
       </div>
     )
   }
