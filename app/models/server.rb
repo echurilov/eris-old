@@ -27,4 +27,7 @@ class Server < ApplicationRecord
   inverse_of: :servers,
   dependent: :destroy
 
+  has_many :channels,
+  inverse_of: :server,
+
 end
