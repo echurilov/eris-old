@@ -1,10 +1,12 @@
 class Api::ChannelsController < ApplicationController
   def index
-    @channels = Server.find(params[:server_id]).channels
+    @server = Server.find(params[:server_id])
+    @channels = @server.channels
     render 'api/channels/index'
   end
 
   def show
+    @server = Server.find(params[:server_id])
     @channel.find(params[:id])
     if @channel
       render 'api/channels/show'
@@ -14,9 +16,10 @@ class Api::ChannelsController < ApplicationController
   end
 
   def create
+    @server = Server.find(params[:server_id])
     @channel = Channel.new(channel_params)
     if @channel.save
-      Server.find(params[:server_id]).channels << @channel
+      @server.channels << @channel
       render 'api/channels/show'
     else
       render json: @channel.errors.messages, status: 422
@@ -24,8 +27,8 @@ class Api::ChannelsController < ApplicationController
   end
 
   def destroy
-    @channel = Channel.find(params[:id])
     @server = Server.find(params[:server_id])
+    @channel = Channel.find(params[:id])
     if @server.owner_id == @user.id
       if @channel.destroy
         render 'api/servers/show'
