@@ -6,11 +6,10 @@ import { clearErrors } from '../../actions/error_actions';
 import Server from './server';
 
 const mapStateToProps = (state, ownProps) => {
+  debugger;
   return({
-  user: state.entities.user[state.entities.session.id],
   servers: {
-    current: ownProps.match.params.serverId,
-    joined: state.entities.servers.joined,
+    current: state.entities.servers.joined[ownProps.match.params.serverId],
   },
   errors: state.errors
 })};

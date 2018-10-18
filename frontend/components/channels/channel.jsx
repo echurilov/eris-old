@@ -1,23 +1,23 @@
 import React from 'react';
-import ServerListContainer from './server_list_container';
+import ChannelListContainer from './channel_list_container';
 
-class Server extends React.Component {
+class Channel extends React.Component {
   constructor(props) {
     super(props);
   }
 
   componentDidMount() {
     // console.log(this.props);
-    this.props.showServer(this.props.servers.current);
+    this.props.showChannel(this.props.channels.current);
     // this.props.clearErrors();
   }
 
   render() {
     // console.log(this.props);
     return(
-      <div className="show-server">
-        Viewing {}
-        <ServerListContainer />
+      <div className="show-channel">
+        Viewing
+        <ChannelListContainer />
         <div className="channels"></div>
         <div className="messages"></div>
       </div>
@@ -25,4 +25,4 @@ class Server extends React.Component {
   }
 }
 
-export default Server;
+export default Channel;

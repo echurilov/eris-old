@@ -8,6 +8,7 @@ class Api::ServersController < ApplicationController
 
   def show
     @server = Server.find(params[:id])
+    @servers = current_user.servers
     if @server
       render 'api/servers/show'
     else

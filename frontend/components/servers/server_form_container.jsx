@@ -5,12 +5,8 @@ import { join } from '../../actions/membership_actions';
 import { clearErrors } from '../../actions/error_actions';
 import ServerForm from './server_form';
 
-const mapStateToProps = state => {
-  // console.log(state);
+const mapStateToProps = (state, ownProps) => {
   return({
-  user: state.entities.user[state.entities.session.id],
-  current: state.entities.servers.current,
-  joined: state.entities.servers.joined,
   errors: state.errors
 })};
 

@@ -38,8 +38,8 @@ export const index = () => dispatch => (
   )
 );
 
-export const show = (id) => dispatch => (
-  ChannelsAPIUtil.show(id)
+export const show = (channel) => dispatch => (
+  ChannelsAPIUtil.show(channel.id)
   .then(
     channel => (dispatch(receiveChannel(channel))),
     error => (dispatch(receiveChannelErrors(error.responseJSON)))
@@ -54,8 +54,8 @@ export const create = (channel) => dispatch => (
   )
 );
 
-export const destroy = (id) => dispatch => (
-  ChannelsAPIUtil.destroy(id)
+export const destroy = (channel) => dispatch => (
+  ChannelsAPIUtil.destroy(channel.id)
   .then(
     channel => (dispatch(removeChannel(channel))),
     error => (dispatch(receiveChannelErrors(error.responseJSON)))
