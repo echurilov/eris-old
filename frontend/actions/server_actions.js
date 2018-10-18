@@ -6,22 +6,22 @@ export const REMOVE_SERVER = 'REMOVE_SERVER';
 export const RECEIVE_SERVER_ERRORS = 'RECEIVE_SERVER_ERRORS';
 export const CLEAR_SERVER_ERRORS = 'CLEAR_SERVER_ERRORS';
 
-const receiveServers = (servers) => ({
+export const receiveServers = (servers) => ({
   type: RECEIVE_SERVERS,
   servers
 });
 
-const receiveServer = (server) => ({
+export const receiveServer = (server) => ({
   type: RECEIVE_SERVER,
   server
 });
 
-const removeServer = (id) => ({
+export const removeServer = (id) => ({
   type: REMOVE_SERVER,
   id
 });
 
-const receiveServerErrors = (server) => ({
+export const receiveServerErrors = (server) => ({
   type: RECEIVE_SERVER_ERRORS,
   server
 });
