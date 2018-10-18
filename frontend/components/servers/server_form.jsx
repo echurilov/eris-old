@@ -56,6 +56,12 @@ class ServerForm extends React.Component {
 
     return(
       <form className="server-form">
+      <button
+        className="server-button"
+        type="createServer"
+        onClick={this.createServer}>
+        +
+      </button>
         <section className={`server-field ${serverError}`}>
           <label htmlFor="name" className="server-name">Server Name</label>
           <input
@@ -66,12 +72,6 @@ class ServerForm extends React.Component {
             onChange={this.update('name')}
             />
         </section>
-        <button
-          className="server-button"
-          type="createServer"
-          onClick={this.createServer}>
-          +
-        </button>
       </form>
     )
   }
