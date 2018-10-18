@@ -16,9 +16,9 @@ export const receiveServer = (server) => ({
   server
 });
 
-export const removeServer = (id) => ({
+export const removeServer = (server) => ({
   type: REMOVE_SERVER,
-  id
+  server
 });
 
 export const receiveServerErrors = (server) => ({
@@ -40,8 +40,8 @@ export const index = () => dispatch => {
   )
 )};
 
-export const show = (id) => dispatch => (
-  ServersAPIUtil.show(id)
+export const show = (server) => dispatch => (
+  ServersAPIUtil.show(server.id)
   .then(
     server => (dispatch(receiveServer(server))),
     error => (dispatch(receiveServerErrors(error.responseJSON)))
@@ -56,8 +56,8 @@ export const create = (server) => dispatch => (
   )
 );
 
-export const destroy = (id) => dispatch => (
-  ServersAPIUtil.destroy(id)
+export const destroy = (server) => dispatch => (
+  ServersAPIUtil.destroy(server.id)
   .then(
     server => (dispatch(removeServer(server))),
     error => (dispatch(receiveServerErrors(error.responseJSON)))
