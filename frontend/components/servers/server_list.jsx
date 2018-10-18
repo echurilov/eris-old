@@ -1,5 +1,5 @@
 import React from 'react';
-import { Link } from 'react-router-dom';
+import { Link, withRouter } from 'react-router-dom';
 import ServerFormContainer from './server_form_container';
 
 class ServerList extends React.Component {
@@ -22,8 +22,8 @@ class ServerList extends React.Component {
       ))
     }
     return(
-      <div className="server-list">
-        <ul>
+      <div>
+        <ul className="server-list">
           <Link to={'/channels/@me'}>Home</Link>
           {serverList}
           <ServerFormContainer />
@@ -33,4 +33,4 @@ class ServerList extends React.Component {
   }
 }
 
-export default ServerList;
+export default withRouter(ServerList);

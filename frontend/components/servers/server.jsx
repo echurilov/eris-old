@@ -1,4 +1,5 @@
 import React from 'react';
+import { withRouter } from 'react-router-dom';
 import ServerListContainer from './server_list_container';
 
 class Server extends React.Component {
@@ -25,4 +26,4 @@ class Server extends React.Component {
   }
 }
 
-export default Server;
+export default withRouter(Server);

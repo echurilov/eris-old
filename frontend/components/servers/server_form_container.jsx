@@ -1,5 +1,6 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { withRouter } from 'react-router-dom';
 import { create } from '../../actions/server_actions';
 import { join } from '../../actions/membership_actions';
 import { clearErrors } from '../../actions/error_actions';
