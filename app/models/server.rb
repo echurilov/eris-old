@@ -14,7 +14,6 @@
 #
 
 class Server < ApplicationRecord
-
   validates_presence_of :name, :owner_id
 
   belongs_to :owner,
@@ -28,6 +27,5 @@ class Server < ApplicationRecord
   dependent: :destroy
 
   has_many :channels,
-  inverse_of: :server,
-
+  inverse_of: :server
 end

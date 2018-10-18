@@ -18,6 +18,6 @@ class Channel < ApplicationRecord
   validates_presence_of :name, :server_id
 
   belongs_to :server,
-  inverse_of: :channels,
+  inverse_of: :channels
 
 end

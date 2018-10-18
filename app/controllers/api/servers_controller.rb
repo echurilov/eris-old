@@ -7,7 +7,7 @@ class Api::ServersController < ApplicationController
   end
 
   def show
-    @server.find(params[:id])
+    @server = Server.find(params[:id])
     if @server
       render 'api/servers/show'
     else
@@ -27,18 +27,23 @@ class Api::ServersController < ApplicationController
   end
 
   def destroy
-    @server.find(params[:id])
-    if @server.destroy
-      render 'api/users/show'
+    @server = Server.find(params[:id])
+    @user = current_user
+    if @server.owner_id == @user.id
+      if @server.destroy
+        render 'api/users/show'
+      else
+        render json: {'server': ['Server does not exist to be deleted']}
+      end
     else
-      render json: {'server': ['Server does not exist to be deleted']}
+      render json: {'server': ['You do not own this server']}
     end
   end
 
   private
 
   def server_params
-    params.require(:server).permit(:name)
+    params.require(:server).permit(:id, :name)
   end
 
 end
