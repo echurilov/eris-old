@@ -1,24 +1,23 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { index } from '../../actions/server_actions';
+import { show } from '../../actions/server_actions';
 import { clearErrors } from '../../actions/error_actions';
-import ServerList from './server_list';
+import Server from './server';
 
-const mapStateToProps = (state) => {
-  // console.log(state);
+const mapStateToProps = (state, ownProps) => {
   return({
   user: state.entities.user[state.entities.session.id],
   servers: {
-    current: state.entities.servers.current,
+    current: ownProps.match.params.serverId,
     joined: state.entities.servers.joined,
   },
   errors: state.errors
 })};
 
 const mapDispatchToProps = dispatch => ({
-  listServers: () => dispatch(index()),
+  showServer: (server) => dispatch(show(server)),
   clearErrors: () => dispatch(clearErrors())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(ServerList);
+export default connect(mapStateToProps, mapDispatchToProps)(Server);

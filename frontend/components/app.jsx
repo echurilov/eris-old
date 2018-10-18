@@ -6,7 +6,7 @@ import SplashContainer from './splash/splash_container';
 import RegistrationContainer from './user/registration_container';
 import LoginContainer from './session/login_container';
 import HomeContainer from './user/home_container';
-import Server from './servers/server';
+import ServerContainer from './servers/server_container';
 import Error404 from './error404';
 
 const App = () => (
@@ -16,7 +16,7 @@ const App = () => (
       <AuthRoute path="/register" component={RegistrationContainer} />
       <AuthRoute path="/login" component={LoginContainer} />
       <ProtectedRoute path="/channels/@me" component={HomeContainer}/>
-      <ProtectedRoute path="/channels/:serverId" component={Server}/>
+      <ProtectedRoute path="/channels/:serverId" component={ServerContainer}/>
       <Route component={Error404} />
     </Switch>
   </div>

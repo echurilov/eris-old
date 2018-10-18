@@ -7,7 +7,8 @@ class Server extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this);
+    // console.log(this.props);
+    this.props.showServer(this.props.servers.current);
     // this.props.clearErrors();
   }
 
@@ -15,6 +16,7 @@ class Server extends React.Component {
     // console.log(this.props);
     return(
       <div className="show-server">
+        Viewing
         <ServerListContainer />
         <div className="channels"></div>
         <div className="messages"></div>

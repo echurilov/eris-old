@@ -5,7 +5,7 @@ class ServerForm extends React.Component {
   constructor(props) {
     super(props);
     this.state = {
-      name: '',
+      'name': '',
     }
     this.createServer = this.createServer.bind(this);
     this.joinServer = this.joinServer.bind(this);

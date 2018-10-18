@@ -16,15 +16,13 @@ export const create = (server) => (
 export const show = (id) => (
   $.ajax({
     method: 'GET',
-    url: `/api/servers/${id}`,
-    data: { server },
+    url: `/api/servers/${id}`
   })
 );
 
 export const destroy = (id) => (
   $.ajax({
     method: 'DELETE',
-    url: `/api/servers/${id}`,
-    data: { server },
+    url: `/api/servers/${id}`
   })
 );

@@ -40,15 +40,13 @@ export const index = () => dispatch => {
   )
 )};
 
-export const show = (server) => dispatch => {
-  // debugger;
-  return(
-  ServersAPIUtil.show(server.id)
+export const show = (id) => dispatch => (
+  ServersAPIUtil.show(id)
   .then(
     server => (dispatch(receiveServer(server))),
     error => (dispatch(receiveServerErrors(error.responseJSON)))
   )
-)};
+);
 
 export const create = (server) => dispatch => (
   ServersAPIUtil.create(server)
@@ -58,8 +56,8 @@ export const create = (server) => dispatch => (
   )
 );
 
-export const destroy = (server) => dispatch => (
-  ServersAPIUtil.destroy(server.id)
+export const destroy = (id) => dispatch => (
+  ServersAPIUtil.destroy(id)
   .then(
     server => (dispatch(removeServer(server))),
     error => (dispatch(receiveServerErrors(error.responseJSON)))
