@@ -129,7 +129,7 @@ class Registration extends React.Component {
                   />
               </section>
               <button
-                className="button-login"
+                className="login-button"
                 type="submit"
                 onClick={this.handleSubmit}>
                 Continue

@@ -1,0 +1,103 @@
+.show-server {}
+
+.outer-sidebar {}
+
+.server-list {
+  display: flex;
+  flex-direction: column;
+  width: 64px;
+  padding: 10px 0px 10px 10px;
+}
+
+.server-list-item {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  margin-top: 8px;
+  width: 50px;
+}
+
+.server-link {
+  display: block;
+  background-image: asset-url("ErisDisc.png");
+  background-size: 50px 50px;
+  width: 50px;
+  padding-top: 50px;
+}
+
+.active-server::before {
+  background: #FFFFFF;
+  height: 40px;
+  border-radius: 20px;
+  left: -15px;
+}
+
+.server-link-info {
+  position: absolute;
+  z-index: 1;
+  text-align: center;
+  border-radius: 3px;
+  background-color: black;
+  color: #fff;
+  width: 0px;
+  visibility: hidden;
+}
+
+.server-list-item:hover .server-link-info {
+  visibility: visible;
+  width: auto;
+  left: 70px;
+  padding: 8px;
+}
+
+.server-form {
+}
+
+.server-field {
+  display: flex;
+  flex-direction: column;
+}
+
+.server-name {
+  font-size: 12px;
+  color: #b9bbbe;
+  font-variant: small-caps;
+  text-transform: uppercase;
+  margin-top: 8px;
+  margin-bottom: 8px;
+  font-weight: 500}
+
+.server-input {
+  background-color: rgba(0,0,0,.1);
+  height: 18px;
+  padding: 10px;
+  margin-bottom: 8px;
+  border: 1px solid;
+  border-color: rgba(0,0,0,.3);
+  border-radius: 3px;
+  color: #f6f6f7;
+}
+
+.server-button {
+  display: inline-block;
+  opacity: .8;
+  background-color: #18191C;
+  border: 2px dashed #FFFFFF;
+  width: 50px;
+  height: 50px;
+  border-radius: 50px;
+  text-align: center;
+  font-size: 30px;
+  font-weight: 100;
+  padding-bottom: 7px;
+  color: #FFFFFF;
+  cursor: pointer;
+}
+
+.inner-sidebar {}
+
+.channel-list {}
+
+.channel-list-item {}
+
+.channel-link {}

@@ -30,7 +30,7 @@ export const clearServerErrors = () => ({
   type: CLEAR_SERVER_ERRORS
 });
 
-export const index = () => dispatch => {
+export const indexServers = () => dispatch => {
   // debugger;
   return(
   ServersAPIUtil.index()
@@ -40,7 +40,7 @@ export const index = () => dispatch => {
   )
 )};
 
-export const show = (server) => dispatch => (
+export const showServer = (server) => dispatch => (
   ServersAPIUtil.show(server.id)
   .then(
     server => (dispatch(receiveServer(server))),
@@ -48,7 +48,7 @@ export const show = (server) => dispatch => (
   )
 );
 
-export const create = (server) => dispatch => (
+export const createServer = (server) => dispatch => (
   ServersAPIUtil.create(server)
   .then(
     server => (dispatch(receiveServer(server))),
@@ -56,7 +56,7 @@ export const create = (server) => dispatch => (
   )
 );
 
-export const destroy = (server) => dispatch => (
+export const destroyServer = (server) => dispatch => (
   ServersAPIUtil.destroy(server.id)
   .then(
     server => (dispatch(removeServer(server))),

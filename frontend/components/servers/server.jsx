@@ -1,6 +1,8 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ServerListContainer from './server_list_container';
+import ChannelListContainer from '../channels/channel_list_container';
+import ChannelContainer from '../channels/channel_container';
 
 class Server extends React.Component {
   constructor(props) {
@@ -9,7 +11,7 @@ class Server extends React.Component {
   }
 
   componentDidMount() {
-    // console.log(this.props);
+    // console.log("server: ", this.props);
     this.props.listServers();
     if (this.props.servers.current) {
       this.props.showServer(this.props.servers.current)
@@ -19,16 +21,14 @@ class Server extends React.Component {
 
   render() {
     // console.log(this.props);
-    let serverName = '';
-    if (this.props.servers.current) {
-      serverName = this.props.servers.current.name
-    }
+    // debugger;
     return(
       <div className="show-server">
-        Viewing {serverName}
-        <ServerListContainer />
-        <div className="channels"></div>
-        <div className="messages"></div>
+        <div className="outer-sidebar">
+          <ServerListContainer />
+          <div>ChannelListContainer</div>
+        </div>
+        <div>ChannelContainer</div>
       </div>
     )
   }

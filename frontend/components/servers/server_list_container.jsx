@@ -1,7 +1,7 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { index } from '../../actions/server_actions';
+import { indexServers } from '../../actions/server_actions';
 import { clearErrors } from '../../actions/error_actions';
 import ServerList from './server_list';
 
@@ -17,7 +17,7 @@ const mapStateToProps = (state) => {
 })};
 
 const mapDispatchToProps = dispatch => ({
-  listServers: () => dispatch(index()),
+  listServers: () => dispatch(indexServers()),
   clearErrors: () => dispatch(clearErrors())
 });
 

@@ -120,7 +120,7 @@ class Login extends React.Component {
               <span className="link"><button className="link-button" onClick={this.handleDemo}>Or log in as Demo User</button></span>
               <br/>
               <button
-                className="button-login"
+                className="login-button"
                 type="submit"
                 onClick={this.handleSubmit}>
                 Login

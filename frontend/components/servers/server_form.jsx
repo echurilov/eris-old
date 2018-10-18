@@ -27,14 +27,14 @@ class ServerForm extends React.Component {
     // this.props.clearErrors();
       // console.log(this.state);
     this.props.createServer(this.state)
-    .then(data => this.props.history.push(`/channels/${data.server.id}`));
+      .then(data => this.props.history.push(`/channels/${data.server.id}`));
   }
 
   joinServer(e) {
     e.preventDefault();
     // this.props.clearErrors();
     this.props.joinServer(this.state)
-    .then(data => this.props.history.push(`/channels/${data.server.id}`));
+      .then(data => this.props.history.push(`/channels/${data.server.id}`));
   }
 
   // renderError(type) {
@@ -55,26 +55,24 @@ class ServerForm extends React.Component {
     const serverError = this.props.errors.serverErrors.server ? "error" : "";
 
     return(
-      <div className="show-server">
-        <form className="server-form">
-          <section className={`login-field} ${serverError}`}>
-            <label htmlFor="name" className="form-label">Server Name</label>
-            <input
-              id="name"
-              className="server-input"
-              type="name"
-              value={this.state.name}
-              onChange={this.update('name')}
-              />
-          </section>
-          <button
-            className="button-server"
-            type="createServer"
-            onClick={this.createServer}>
-            Create Server
-          </button>
-        </form>
-      </div>
+      <form className="server-form">
+        <section className={`server-field ${serverError}`}>
+          <label htmlFor="name" className="server-name">Server Name</label>
+          <input
+            id="name"
+            className="server-input"
+            type="name"
+            value={this.state.name}
+            onChange={this.update('name')}
+            />
+        </section>
+        <button
+          className="server-button"
+          type="createServer"
+          onClick={this.createServer}>
+          +
+        </button>
+      </form>
     )
   }
 }

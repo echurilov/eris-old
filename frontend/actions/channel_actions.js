@@ -16,7 +16,7 @@ const receiveChannel = (channel) => ({
   channel
 });
 
-const removeChannel = (id) => ({
+const removeChannel = (channel) => ({
   type: REMOVE_CHANNEL,
   id
 });
@@ -30,23 +30,25 @@ export const clearChannelErrors = () => ({
   type: CLEAR_CHANNEL_ERRORS
 });
 
-export const index = () => dispatch => (
+export const indexChannels = () => dispatch => {
+  debugger;
+  return(
   ChannelsAPIUtil.index()
   .then(
     channels => (dispatch(receiveChannels(channels))),
     error => (dispatch(receiveChannelErrors(error.responseJSON)))
   )
-);
+)};
 
-export const show = (id) => dispatch => (
-  ChannelsAPIUtil.show(id)
+export const showChannel = (channel) => dispatch => (
+  ChannelsAPIUtil.show(channel.id)
   .then(
     channel => (dispatch(receiveChannel(channel))),
     error => (dispatch(receiveChannelErrors(error.responseJSON)))
   )
 );
 
-export const create = (channel) => dispatch => (
+export const createChannel = (channel) => dispatch => (
   ChannelsAPIUtil.create(channel)
   .then(
     channel => (dispatch(receiveChannel(channel))),
@@ -54,8 +56,8 @@ export const create = (channel) => dispatch => (
   )
 );
 
-export const destroy = (id) => dispatch => (
-  ChannelsAPIUtil.destroy(id)
+export const destroyChannel = (channel) => dispatch => (
+  ChannelsAPIUtil.destroy(channel.id)
   .then(
     channel => (dispatch(removeChannel(channel))),
     error => (dispatch(receiveChannelErrors(error.responseJSON)))

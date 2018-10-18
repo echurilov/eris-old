@@ -1,14 +1,22 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
-import { show, index } from '../../actions/server_actions';
+import { showServer, indexServers } from '../../actions/server_actions';
 import { clearErrors } from '../../actions/error_actions';
 import Server from './server';
 
 const mapStateToProps = (state, ownProps) => {
   let currentServer = state.entities.servers.current;
+  // debugger;
+  console.log(state,ownProps);
 
-  if (state.entities.servers.joined) {
+  if (ownProps.serverId) {
+    currentServer = {
+      'id': '@me',
+      'owner_id': state.entities.user[state.entities.session.id].id,
+      'name': 'Home',
+    }
+  } else if (state.entities.servers.joined) {
     currentServer = state.entities.servers.joined[ownProps.match.params.serverId]
   };
 
@@ -23,8 +31,8 @@ const mapStateToProps = (state, ownProps) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  listServers: () => dispatch(index()),
-  showServer: (server) => dispatch(show(server)),
+  listServers: () => dispatch(indexServers()),
+  showServer: (server) => dispatch(showServer(server)),
   clearErrors: () => dispatch(clearErrors())
 });
 

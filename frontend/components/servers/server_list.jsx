@@ -10,25 +10,42 @@ class ServerList extends React.Component {
   componentDidMount() {
     this.props.clearErrors();
     this.props.listServers();
-    // console.log(this.props)
+    // console.log("serverlist: ", this.props);
   }
 
   render() {
     // console.log(this.props);
+    // className="server-list-item active-server"
+    // <span className="server-link-info">Home</span>
+    // if (server.id === this.props.servers.current.id) {
+    // } else {
+    //   return(
+    //     <li key={server.id} className="server-list-item">
+    //       <Link className="server-link" to={`/channels/${server.id}`}></Link>
+    //     </li>
+    //   )
     let serverList = [];
     if (this.props.servers.joined) {
       serverList = Object.values(this.props.servers.joined).map((server) => (
-        <li key={server.id}><Link to={`/channels/${server.id}`}>{server.name}</Link></li>
-      ))
+        <li key={server.id} className="server-list-item">
+          <Link className="server-link" to={`/channels/${server.id}`}></Link>
+          <span className="server-link-info">{server.name}</span>
+        </li>
+        )
+      )
     }
+
+    // const atHome = (this.props.servers.current.id === '@me') ? 'active-server' : '';
+    // className={`server-link ${atHome}`}
     return(
-      <div>
-        <ul className="server-list">
-          <Link to={'/channels/@me'}>Home</Link>
-          {serverList}
-          <ServerFormContainer />
-        </ul>
-      </div>
+      <ul className="server-list">
+        <li key='@me' className="server-list-item">
+          <Link className="server-link" to={'/channels/@me'}></Link>
+          <span className="server-link-info">Home</span>
+        </li>
+        {serverList}
+        <ServerFormContainer />
+      </ul>
     )
   }
 }
