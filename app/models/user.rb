@@ -38,6 +38,10 @@ class User < ApplicationRecord
   through: :memberships,
   inverse_of: :members
 
+  has_one :home,
+  class_name: :Server,
+  inverse_of: :user
+
   def self.find_by_credentials(email, password)
     user = User.find_by(email: email)
     if user && user.is_password?(password)

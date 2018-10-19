@@ -7,14 +7,17 @@
 #  created_at :datetime         not null
 #  updated_at :datetime         not null
 #  owner_id   :integer          not null
+#  user_id    :integer
 #
 # Indexes
 #
 #  index_servers_on_owner_id  (owner_id)
+#  index_servers_on_user_id   (user_id) UNIQUE
 #
 
 class Server < ApplicationRecord
   validates_presence_of :name, :owner_id
+  validates_uniqueness_of :user_id, allow_nil: true
 
   belongs_to :owner,
   class_name: :User,
@@ -28,4 +31,8 @@ class Server < ApplicationRecord
 
   has_many :channels,
   inverse_of: :server
+
+  belongs_to :user,
+  optional: true,
+  inverse_of: :home
 end

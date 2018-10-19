@@ -18,6 +18,7 @@ class Api::ServersController < ApplicationController
   def create
     @server = Server.new(server_params)
     @server.owner_id = current_user.id
+    Membership.create('server_id': @server.id, 'member_id': current_user.id)
     if @server.save
       current_user.servers << @server
       render 'api/servers/show'
