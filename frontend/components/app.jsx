@@ -15,7 +15,7 @@ const App = () => (
       <AuthRoute exact path="/" component={SplashContainer} />
       <AuthRoute path="/register" component={RegistrationContainer} />
       <AuthRoute path="/login" component={LoginContainer} />
-      <ProtectedRoute path="/channels/@me" component={ServerContainer}/>
+      <ProtectedRoute path="/channels/@me" serverId='@me' component={ServerContainer}/>
       <ProtectedRoute path="/channels/:serverId/:channelId" component={ServerContainer} />
       <ProtectedRoute path="/channels/:serverId" component={ServerContainer} />
       <Route component={Error404} />

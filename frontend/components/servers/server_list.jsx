@@ -8,7 +8,7 @@ class ServerList extends React.Component {
   }
 
   componentDidMount() {
-    this.props.clearErrors();
+    // this.props.clearErrors();
     this.props.listServers();
     // console.log("serverlist: ", this.props);
   }
@@ -39,10 +39,6 @@ class ServerList extends React.Component {
     // className={`server-link ${atHome}`}
     return(
       <ul className="server-list">
-        <li key='@me' className="server-list-item">
-          <Link className="server-link" to={'/channels/@me'}></Link>
-          <span className="server-link-info">Home</span>
-        </li>
         {serverList}
         <ServerFormContainer />
       </ul>

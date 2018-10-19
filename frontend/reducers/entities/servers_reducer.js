@@ -7,7 +7,7 @@ const serversReducer = (state = _nullServers, action) => {
   switch(action.type) {
     case RECEIVE_SERVER:
       // console.log("show: ", action.server);
-      return {...state, current: action.server}
+      return {...state, current: action.server.id}
     case RECEIVE_SERVERS:
       // console.log("index: ", action.servers);
       return {...state, joined: action.servers};

@@ -6,16 +6,21 @@ import { joinServer } from '../../actions/membership_actions';
 import { clearErrors } from '../../actions/error_actions';
 import ServerForm from './server_form';
 
-const mapStateToProps = state => {
-  // console.log(state);
+const mapStateToProps = (state) => {
+  const currentServer = state.entities.servers.current;
+  const joinedServers = state.entities.servers.joined;
+  const currentUser = state.entities.user;
+  const session = state.entities.session;
+
   return({
-  user: state.entities.user[state.entities.session.id],
-  servers: {
-    current: state.entities.servers.current,
-    joined: state.entities.servers.joined,
-  },
-  errors: state.errors
-})};
+    user: currentUser[session.id],
+    servers: {
+      current: currentServer,
+      joined: joinedServers,
+    },
+    errors: state.errors
+  })
+};
 
 const mapDispatchToProps = dispatch => ({
   createServer: (server) => dispatch(createServer(server)),

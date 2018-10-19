@@ -13,10 +13,7 @@ class Server extends React.Component {
 
   componentDidMount() {
     // console.log("server: ", this.props);
-    this.props.listServers();
-    if (this.props.servers.current) {
-      this.props.showServer(this.props.servers.current)
-    }
+    this.props.showServer(this.props.match.params.serverId);
     // this.props.clearErrors();
   }
 
