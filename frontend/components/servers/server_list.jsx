@@ -26,13 +26,23 @@ class ServerList extends React.Component {
     //   )
     let serverList = [];
     if (this.props.servers.joined) {
-      serverList = Object.values(this.props.servers.joined).map((server) => (
-        <li key={server.id} className="server-list-item">
-          <Link className="server-link" to={`/channels/${server.id}`}></Link>
-          <span className="server-link-info">{server.name}</span>
-        </li>
-        )
-      )
+      serverList = Object.values(this.props.servers.joined).map((server) => {
+        if (server.id == this.props.user.home) {
+          return(
+            <li key={server.id} className="server-list-item">
+              <Link className="server-link" to={`/channels/@me`}></Link>
+              <span className="server-link-info">{server.name}</span>
+            </li>
+          )
+        } else {
+          return(
+            <li key={server.id} className="server-list-item">
+              <Link className="server-link" to={`/channels/${server.id}`}></Link>
+              <span className="server-link-info">{server.name}</span>
+            </li>
+          )
+        }
+      })
     }
 
     // const atHome = (this.props.servers.current.id === '@me') ? 'active-server' : '';
