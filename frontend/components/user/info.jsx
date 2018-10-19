@@ -1,9 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
-import ServerListContainer from '../servers/server_list_container';
-import ServerContainer from '../servers/server_container';
 
-class UserHome extends React.Component {
+class UserInfo extends React.Component {
   constructor(props) {
     super(props);
     this.handleSubmit = this.handleSubmit.bind(this);
@@ -23,7 +21,6 @@ class UserHome extends React.Component {
     // console.log(this.props);
     return(
       <div className="user-home">
-        <ServerContainer serverId='@me'/>
         <div className="user-info">
           <p>Logged in as {this.props.user.username}</p>
           <form className="logout-form-box">
@@ -42,4 +39,4 @@ class UserHome extends React.Component {
   }
 }
 
-export default withRouter(UserHome);
+export default withRouter(UserInfo);

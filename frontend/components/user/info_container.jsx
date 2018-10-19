@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { logout } from '../../actions/session_actions';
 import { clearErrors } from '../../actions/error_actions';
-import UserHome from './home';
+import UserInfo from './info';
 
 const mapStateToProps = state => {
   // console.log(state);
@@ -22,4 +22,4 @@ const mapDispatchToProps = dispatch => ({
   clearErrors: () => dispatch(clearErrors())
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(UserHome);
+export default connect(mapStateToProps, mapDispatchToProps)(UserInfo);
