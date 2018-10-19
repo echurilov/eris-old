@@ -11,6 +11,25 @@ class Server extends React.Component {
     // this.showServer = this.showServer.bind(this);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.match.params.serverId === nextProps.match.params.serverId) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  componentDidUpdate() {
+      if (this.props.match.path === '/channels/@me') {
+        this.props.showServer(this.props.user.home)
+      } else if (this.props.match.params.serverId == this.props.user.home) {
+        this.props.showServer(this.props.match.params.serverId)
+          .then(data => this.props.history.push(`/channels/@me`));
+      } else {
+        this.props.showServer(this.props.match.params.serverId);
+      }
+  }
+
   componentDidMount() {
     if (this.props.match.path === '/channels/@me') {
       this.props.showServer(this.props.user.home)
