@@ -19,9 +19,9 @@ class ServerList extends React.Component {
     let activeServer;
     let currentServer = {name: ''};
     if (this.props.servers.joined) {
-      if (this.props.servers.current) {
-        currentServer = this.props.servers.joined[this.props.servers.current];
-        console.log(currentServer);
+      if (this.props.servers.joined[this.props.servers.current]) {
+        currentServer.name = this.props.servers.joined[this.props.servers.current].name;
+        // console.log(currentServer.name);
       }
       serverList = Object.values(this.props.servers.joined).map((server) => {
         activeServer = (this.props.servers.current == server.id) ? 'active-server' : '';
@@ -39,10 +39,13 @@ class ServerList extends React.Component {
       })
     }
     return(
-      <ul className="server-list">
-        {serverList}
-        <ServerFormContainer />
-      </ul>
+      <div>
+        <ul className="server-list">
+          {serverList}
+          <ServerFormContainer />
+        </ul>
+        {currentServer.name}
+      </div>
     )
   }
 }
