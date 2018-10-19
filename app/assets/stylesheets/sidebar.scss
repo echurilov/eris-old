@@ -5,7 +5,7 @@
 .server-list {
   display: flex;
   flex-direction: column;
-  width: 64px;
+  width: 100px;
   padding: 10px 0px 10px 10px;
 }
 
@@ -104,3 +104,20 @@
 .channel-list-item {}
 
 .channel-link {}
+
+.user-info {
+  margin-bottom: 8px;
+}
+
+.logout-button {
+  display: inline-block;
+  height: 40px;
+  width: 100px;
+  color: #FFFFFF;
+  background-color: #7289dA;
+  border-radius: 3px;
+  border: none;
+  padding: 16 2;
+  margin-bottom: 8px;
+  cursor: pointer
+}

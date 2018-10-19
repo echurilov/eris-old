@@ -26,7 +26,7 @@ class UserInfo extends React.Component {
           <form className="logout-form-box">
             <br/>
             <section className="logout-form">
-              <button
+              <button className="logout-button"
                 type="submit"
                 onClick={this.handleSubmit}>
                 Log Out

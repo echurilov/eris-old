@@ -49,9 +49,9 @@ class Server extends React.Component {
       <div className="show-server">
         <div className="outer-sidebar">
           <ServerListContainer />
-          <div>ChannelListContainer</div>
+          <div className="ChannelListContainer"></div>
         </div>
-        <div>ChannelContainer</div>
+        <div className="ChannelContainer"></div>
         <InfoContainer />
       </div>
     )
