@@ -14,20 +14,15 @@ class ServerList extends React.Component {
   }
 
   render() {
-    // console.log(this.props);
-    // className="server-list-item active-server"
-    // <span className="server-link-info">Home</span>
-    // if (server.id === this.props.servers.current.id) {
-    // } else {
-    //   return(
-    //     <li key={server.id} className="server-list-item">
-    //       <Link className="server-link" to={`/channels/${server.id}`}></Link>
-    //     </li>
-    //   )
     let serverList = [];
     let newChannel;
     let activeServer;
+    let currentServer = {name: ''};
     if (this.props.servers.joined) {
+      if (this.props.servers.current) {
+        currentServer = this.props.servers.joined[this.props.servers.current];
+        console.log(currentServer);
+      }
       serverList = Object.values(this.props.servers.joined).map((server) => {
         activeServer = (this.props.servers.current == server.id) ? 'active-server' : '';
         if (server.id == this.props.user.home) {

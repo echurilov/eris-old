@@ -27,7 +27,8 @@ class ServerForm extends React.Component {
     // this.props.clearErrors();
       // console.log(this.state);
     this.props.createServer(this.state)
-      .then(data => this.props.history.push(`/channels/${data.server.id}`));
+      .then(data => this.props.history.push(`/channels/${data.server.id}`))
+      .then(() => this.props.listServers());
   }
 
   joinServer(e) {
