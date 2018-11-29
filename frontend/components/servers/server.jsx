@@ -45,12 +45,20 @@ class Server extends React.Component {
   render() {
     // console.log(this.props);
     // debugger;
+    
+    let serverId;
+    if (this.props.match.path === '/channels/@me') {
+      serverId = this.props.user.home;
+    } else {
+      serverId = this.props.match.params.serverId;
+    }
+
     return(
       <div className="show-server">
         <div className="outer-sidebar">
           <ServerListContainer />
           <div className="ChannelListContainer">
-            <ChannelList server={this.props.match.params.serverId}/>
+            <ChannelList server={serverId}/>
           </div>
         </div>
       </div>

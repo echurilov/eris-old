@@ -43,7 +43,7 @@ class ChannelList extends React.Component {
     let channelList = [];
     if (this.props.channels.listed) {
       channelList = Object.values(this.props.channels.listed).map((channel) => (
-        <li className="channel-list-item" key={channel.id}><Link className="channel-link" to={`/channels/${this.props.match.params.serverId}/${channel.id}`}>{channel.name}</Link></li>
+        <li className="channel-list-item" key={channel.id}><Link className="channel-link" to={`/channels/${this.props.server}/${channel.id}`}>{channel.name}</Link></li>
       ))
     }
     return(
