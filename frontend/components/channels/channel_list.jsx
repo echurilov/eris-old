@@ -30,6 +30,18 @@ class ChannelList extends React.Component {
     super(props);
   }
 
+  shouldComponentUpdate(nextProps, nextState) {
+    if (this.props.server === nextProps.server) {
+      return false;
+    } else {
+      return true;
+    }
+  }
+
+  componentDidUpdate() {
+    this.props.listChannels(this.props.server);
+  }
+
   componentDidMount() {
     // this.props.clearErrors();
     this.props.listChannels(this.props.server);
