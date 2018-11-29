@@ -31,7 +31,7 @@ export const clearChannelErrors = () => ({
 });
 
 export const indexChannels = () => dispatch => {
-  debugger;
+  // debugger;
   return(
   ChannelsAPIUtil.index()
   .then(

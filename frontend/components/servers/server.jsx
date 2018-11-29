@@ -1,7 +1,7 @@
 import React from 'react';
 import { withRouter } from 'react-router-dom';
 import ServerListContainer from './server_list_container';
-import ChannelListContainer from '../channels/channel_list_container';
+import ChannelList from '../channels/channel_list';
 import ChannelContainer from '../channels/channel_container';
 import InfoContainer from '../user/info_container';
 
@@ -40,18 +40,20 @@ class Server extends React.Component {
       this.props.showServer(this.props.match.params.serverId);
     }
     // this.props.clearErrors();
+    console.log(this.props);
   }
 
   render() {
-    // console.log(this.props);
+    console.log(this.props);
     // debugger;
     return(
       <div className="show-server">
         <div className="outer-sidebar">
           <ServerListContainer />
-          <div className="ChannelListContainer"></div>
+          <div className="ChannelListContainer">
+            <ChannelList />
+          </div>
         </div>
-        <div className="ChannelContainer"></div>
         <InfoContainer />
       </div>
     )

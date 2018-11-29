@@ -6,17 +6,17 @@ const channelsReducer = (state = _nullChannels, action) => {
   Object.freeze(state);
   switch(action.type) {
     case RECEIVE_CHANNEL:
-      debugger;
+      // debugger;
       // console.log("show: ", action.channel);
-      return {...state, current: action.channel}
+      return { ...state, current: action.channel.id }
     case RECEIVE_CHANNELS:
-      debugger;
+      // debugger;
       // console.log("index: ", action.channels);
       return {...state, listed: action.channels};
     case REMOVE_CHANNEL:
       return _nullChannels;
     default:
-      debugger;
+      // debugger;
       // console.log(action.type);
       return state;
   }

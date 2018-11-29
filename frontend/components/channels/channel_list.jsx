@@ -1,7 +1,30 @@
 import React from 'react';
 import { Link, withRouter } from 'react-router-dom';
-import ChannelFormContainer from './channel_form_container';
+import { connect } from 'react-redux';
+import { indexChannels } from '../../actions/channel_actions';
+import { clearErrors } from '../../actions/error_actions';
 
+const mapStateToProps = (state) => {
+  // const currentServer = state.entities.servers.current;
+  const currentChannel = state.entities.channels.current;
+  const listedChannels = state.entities.channels.listed;
+  const currentUser = state.entities.user;
+  const session = state.entities.session;
+
+  return ({
+    user: currentUser[session.id],
+    channels: {
+      current: currentChannel,
+      listed: listedChannels,
+    },
+    errors: state.errors
+  })
+};
+
+const mapDispatchToProps = dispatch => ({
+  listChannels: () => dispatch(indexChannels()),
+  clearErrors: () => dispatch(clearErrors())
+});
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
@@ -15,12 +38,7 @@ class ChannelList extends React.Component {
 
   render() {
     // console.log(this.props);
-    debugger;
-
-    let serverName = '';
-    if (this.props.servers.current) {
-      serverName = this.props.servers.current.name
-    }
+    // debugger;
 
     let channelList = [];
     if (this.props.channels.listed) {
@@ -30,9 +48,7 @@ class ChannelList extends React.Component {
     }
     return(
       <div className="inner-sidebar">
-      {serverName}
         <ul className="channel-list">
-          {channelList}
           <div>ChannelFormContainer</div>
         </ul>
         <div className="user-info">
@@ -53,4 +69,4 @@ class ChannelList extends React.Component {
   }
 }
 
-export default withRouter(ChannelList);
+export default connect(mapStateToProps, mapDispatchToProps)(ChannelList);
