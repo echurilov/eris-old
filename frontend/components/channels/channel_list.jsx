@@ -58,9 +58,11 @@ class ChannelList extends React.Component {
         <li className="channel-list-item" key={channel.id}><Link className="channel-link" to={`/channels/${this.props.server}/${channel.id}`}>{channel.name}</Link></li>
       ))
     }
+    
     return(
       <div className="inner-sidebar">
         <ul className="channel-list">
+          {channelList}
           <div>ChannelFormContainer</div>
         </ul>
         <InfoContainer />
