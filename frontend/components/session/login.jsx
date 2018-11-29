@@ -77,7 +77,7 @@ class Login extends React.Component {
   }
 
   render() {
-  console.log(this.props.errors);
+  // console.log(this.props.errors);
   const emailError = this.props.errors.userErrors.email || this.props.errors.sessionErrors.email ? "error" : "";
   const usernameError = this.props.errors.userErrors.username || this.props.errors.sessionErrors.username ? "error" : "";
   const passwordError = this.props.errors.userErrors.password || this.props.errors.sessionErrors.password ? "error" : "";

@@ -30,10 +30,10 @@ export const clearChannelErrors = () => ({
   type: CLEAR_CHANNEL_ERRORS
 });
 
-export const indexChannels = () => dispatch => {
+export const indexChannels = (serverId) => dispatch => {
   // debugger;
   return(
-  ChannelsAPIUtil.index()
+  ChannelsAPIUtil.index(serverId)
   .then(
     channels => (dispatch(receiveChannels(channels))),
     error => (dispatch(receiveChannelErrors(error.responseJSON)))

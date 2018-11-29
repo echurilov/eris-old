@@ -2,6 +2,7 @@ class Api::ServersController < ApplicationController
   def index
     # owned = Server.where(owner_id: current_user.id)
     # joined = current_user.servers
+    p "Server Params: ", params.inspect
     @servers = current_user.servers
     render 'api/servers/index'
   end

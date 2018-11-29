@@ -39,18 +39,18 @@ class Server extends React.Component {
       this.props.showServer(this.props.match.params.serverId);
     }
     // this.props.clearErrors();
-    console.log(this.props);
+    // console.log(this.props);
   }
 
   render() {
-    console.log(this.props);
+    // console.log(this.props);
     // debugger;
     return(
       <div className="show-server">
         <div className="outer-sidebar">
           <ServerListContainer />
           <div className="ChannelListContainer">
-            <ChannelList />
+            <ChannelList server={this.props.match.params.serverId}/>
           </div>
         </div>
       </div>

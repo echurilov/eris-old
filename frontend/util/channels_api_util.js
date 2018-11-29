@@ -1,7 +1,7 @@
-export const index = () => (
+export const index = (serverId) => (
   $.ajax({
     method: 'GET',
-    url: '/api/channels',
+    url: `/api/servers/${serverId}/channels`,
   })
 );
 

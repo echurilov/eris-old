@@ -37,7 +37,7 @@ class Registration extends React.Component {
   }
 
   renderErrors(type) {
-    console.log('cDM: ', this.props.errors);
+    // console.log('cDM: ', this.props.errors);
     let errorList = [];
     Object.entries(this.props.errors).map((entry) => {
       errorList = errorList.concat(Object.entries(entry[1]))

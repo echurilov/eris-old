@@ -6,7 +6,6 @@ import { clearErrors } from '../../actions/error_actions';
 import InfoContainer from '../user/info_container';
 
 const mapStateToProps = (state) => {
-  // const currentServer = state.entities.servers.current;
   const currentChannel = state.entities.channels.current;
   const listedChannels = state.entities.channels.listed;
   const currentUser = state.entities.user;
@@ -23,7 +22,7 @@ const mapStateToProps = (state) => {
 };
 
 const mapDispatchToProps = dispatch => ({
-  listChannels: () => dispatch(indexChannels()),
+  listChannels: (serverId) => dispatch(indexChannels(serverId)),
   clearErrors: () => dispatch(clearErrors())
 });
 class ChannelList extends React.Component {
@@ -33,8 +32,8 @@ class ChannelList extends React.Component {
 
   componentDidMount() {
     // this.props.clearErrors();
-    this.props.listChannels();
-    // console.log(this.props)
+    this.props.listChannels(this.props.server);
+    // console.log(this.props);
   }
 
   render() {

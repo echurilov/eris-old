@@ -15,7 +15,7 @@ class ServerList extends React.Component {
 
   render() {
     let serverList = [];
-    let newChannel;
+    let newServer;
     let activeServer;
     let currentServer = {name: ''};
     if (this.props.servers.joined) {
@@ -26,25 +26,25 @@ class ServerList extends React.Component {
       serverList = Object.values(this.props.servers.joined).map((server) => {
         activeServer = (this.props.servers.current == server.id) ? 'active-server' : '';
         if (server.id == this.props.user.home) {
-          newChannel = '/channels/@me';
+          newServer = '/channels/@me';
         } else {
-          newChannel = `/channels/${server.id}`;
+          newServer = `/channels/${server.id}`;
         }
         return(
           <li key={server.id} className="server-list-item">
-            <Link className={`server-link ${activeServer}`} to={newChannel}></Link>
+            <Link className={`server-link ${activeServer}`} to={newServer}></Link>
             <span className="server-link-info">{server.name}</span>
           </li>
         )
       })
     }
+
     return(
       <div>
         <ul className="server-list">
           {serverList}
           <ServerFormContainer />
         </ul>
-        {currentServer.name}
       </div>
     )
   }
