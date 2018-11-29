@@ -3,7 +3,6 @@ import { withRouter } from 'react-router-dom';
 import ServerListContainer from './server_list_container';
 import ChannelList from '../channels/channel_list';
 import ChannelContainer from '../channels/channel_container';
-import InfoContainer from '../user/info_container';
 
 class Server extends React.Component {
   constructor(props) {
@@ -54,7 +53,6 @@ class Server extends React.Component {
             <ChannelList />
           </div>
         </div>
-        <InfoContainer />
       </div>
     )
   }

@@ -3,6 +3,7 @@ import { Link, withRouter } from 'react-router-dom';
 import { connect } from 'react-redux';
 import { indexChannels } from '../../actions/channel_actions';
 import { clearErrors } from '../../actions/error_actions';
+import InfoContainer from '../user/info_container';
 
 const mapStateToProps = (state) => {
   // const currentServer = state.entities.servers.current;
@@ -51,19 +52,7 @@ class ChannelList extends React.Component {
         <ul className="channel-list">
           <div>ChannelFormContainer</div>
         </ul>
-        <div className="user-info">
-          <p>Logged in as {this.props.user.username}</p>
-          <form className="logout-form-box">
-            <br/>
-            <section className="logout-form">
-              <button
-                type="submit"
-                onClick={this.handleSubmit}>
-                Log Out
-              </button>
-            </section>
-          </form>
-        </div>
+        <InfoContainer />
       </div>
     )
   }
