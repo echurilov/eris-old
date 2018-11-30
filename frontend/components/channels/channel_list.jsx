@@ -8,11 +8,8 @@ import InfoContainer from '../user/info_container';
 const mapStateToProps = (state) => {
   const currentChannel = state.entities.channels.current;
   const listedChannels = state.entities.channels.listed;
-  const currentUser = state.entities.user;
-  const session = state.entities.session;
 
   return ({
-    user: currentUser[session.id],
     channels: {
       current: currentChannel,
       listed: listedChannels,
@@ -28,10 +25,11 @@ const mapDispatchToProps = dispatch => ({
 class ChannelList extends React.Component {
   constructor(props) {
     super(props);
+    this.state = { serverId: this.props.serverId }
   }
 
-  shouldComponentUpdate(nextProps, nextState) {
-    if (this.props.server === nextProps.server) {
+  shouldComponentUpdate(nextProps) {
+    if (this.props.serverId === nextProps.serverId) {
       return false;
     } else {
       return true;
@@ -39,23 +37,20 @@ class ChannelList extends React.Component {
   }
 
   componentDidUpdate() {
-    this.props.listChannels(this.props.server);
+    this.props.listChannels(this.props.serverId);
   }
 
   componentDidMount() {
-    // this.props.clearErrors();
-    this.props.listChannels(this.props.server);
-    // console.log(this.props);
+    this.props.listChannels(this.props.serverId);
   }
 
   render() {
-    // console.log(this.props);
-    // debugger;
+    console.log(this.props.channels.listed);
 
     let channelList = [];
     if (this.props.channels.listed) {
       channelList = Object.values(this.props.channels.listed).map((channel) => (
-        <li className="channel-list-item" key={channel.id}><Link className="channel-link" to={`/channels/${this.props.server}/${channel.id}`}>{channel.name}</Link></li>
+        <li className="channel-list-item" key={channel.id}><Link className="channel-link" to={`/channels/${this.props.serverId}/${channel.id}`}>{channel.name}</Link></li>
       ))
     }
     

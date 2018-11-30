@@ -7,7 +7,6 @@ import ChannelContainer from '../channels/channel_container';
 class Server extends React.Component {
   constructor(props) {
     super(props);
-    // this.showServer = this.showServer.bind(this);
   }
 
   shouldComponentUpdate(nextProps, nextState) {
@@ -38,14 +37,9 @@ class Server extends React.Component {
     } else {
       this.props.showServer(this.props.match.params.serverId);
     }
-    // this.props.clearErrors();
-    // console.log(this.props);
   }
 
   render() {
-    // console.log(this.props);
-    // debugger;
-    
     let serverId;
     if (this.props.match.path === '/channels/@me') {
       serverId = this.props.user.home;
@@ -53,12 +47,20 @@ class Server extends React.Component {
       serverId = this.props.match.params.serverId;
     }
 
+    let currentServer = { name: '' };
+    if (this.props.servers.joined) {
+      if (this.props.servers.joined[serverId]) {
+        currentServer.name = this.props.servers.joined[serverId].name;
+      }
+    }
+
     return(
       <div className="show-server">
         <div className="outer-sidebar">
           <ServerListContainer />
           <div className="ChannelListContainer">
-            <ChannelList server={serverId}/>
+            {currentServer.name}
+            <ChannelList serverId={serverId}/>
           </div>
         </div>
       </div>
