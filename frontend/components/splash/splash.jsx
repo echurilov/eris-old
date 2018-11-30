@@ -25,21 +25,24 @@ class Splash extends React.Component {
             <nav className="header-inner">
               <ul className="left-nav-list">
                 <li><div className="logo-box"><Link className="logo-img" to={'/'}>Eris</Link></div></li>
-                <li className="nav-item"><Link className="nav-link" to={'https://github.com/echurilov/eris'}>Download</Link></li>
-                <li className="nav-item"><Link className="nav-link" to={'https://github.com/echurilov/eris/wiki'}>Wiki</Link></li>
+                <li className="nav-item"><a className="nav-link" href="https://github.com/echurilov/eris">Download</a></li>
+                <li className="nav-item"><a className="nav-link" href="https://github.com/echurilov/eris/wiki">Wiki</a></li>
                 <li className="nav-item"><Link className="nav-link" to={'/'}>Jobs</Link></li>
                 <li className="nav-item"><div className="dropdown">
                   <button className="dropbtn">Developer</button>
                   <div className="dropdown-content">
-                    <Link className="dropdown-link" to={'https://github.com/echurilov/'}>
+                    <a className="dropdown-link" href="https://elena-churilov.com/">
+                      <span className="dropdown-text">Portfolio</span>
+                    </a>
+                    <a className="dropdown-link" href="https://github.com/echurilov/">
                       <span className="dropdown-text">Github</span>
-                  </Link>
-                    <Link className="dropdown-link" to={'https://www.linkedin.com/in/elenachurilov/'}>
+                  </a>
+                    <a className="dropdown-link" href="https://www.linkedin.com/in/elenachurilov/">
                       <span className="dropdown-text">LinkedIn</span>
-                  </Link>
-                    <Link className="dropdown-link" to={'https://angel.co/elena-churilov'}>
+                  </a>
+                    <a className="dropdown-link" href="https://angel.co/elena-churilov">
                       <span className="dropdown-text">Angel List</span>
-                  </Link>
+                  </a>
                   </div>
                 </div></li>
                 <li className="nav-item"><div className="dropdown">
